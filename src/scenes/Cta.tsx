@@ -1,5 +1,5 @@
 import React from 'react';
-import {interpolate, useCurrentFrame} from 'remotion';
+import {useCurrentFrame} from 'remotion';
 import {C, F} from '../theme';
 import {Logo, Paper, useSpring} from '../components/ui';
 
@@ -121,17 +121,6 @@ export const Cta: React.FC = () => {
               📍 {b}
             </div>
           ))}
-        </div>
-        <div
-          style={{
-            marginTop: 30,
-            fontFamily: F.body,
-            fontSize: 30,
-            color: 'rgba(244,236,223,0.8)',
-            opacity: interpolate(frame, [60, 75], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}),
-          }}
-        >
-          Tel: 016-723 9772
         </div>
       </div>
     </Paper>

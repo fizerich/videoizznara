@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "studio": "remotion studio",
-    "render": "remotion render IzznaraBraces out/izznara-braces-9x16.mp4"
+    "render": "remotion render IzznaraBraces out/izznara-braces-9x16.mp4",
+    "render:v2": "remotion render IzznaraBracesV2 out/izznara-braces-v2-9x16.mp4",
+    "audio": "python3 audio/generate.py"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
     "@fontsource/inter": "^5.3.0",
     "@fontsource/oswald": "^5.3.0",
     "@remotion/cli": "^4.0.529",
+    "@remotion/paths": "^4.0.529",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "remotion": "^4.0.529"
