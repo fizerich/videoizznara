@@ -12,9 +12,10 @@ import {BRACKET_AT, BracesV2} from './stations/BracesV2';
 import {CARD_AT, OptionsV2} from './stations/OptionsV2';
 import {StepsV2} from './stations/StepsV2';
 import {MapV2, PIN_AT} from './stations/MapV2';
+import {REVIEW_AT, ReviewsV2, STAR_AT} from './stations/ReviewsV2';
 import {CtaV2, END_HIT, SEND_AT} from './stations/CtaV2';
 
-const STATIONS = [HookV2, BracesV2, OptionsV2, StepsV2, MapV2, CtaV2];
+const STATIONS = [HookV2, BracesV2, OptionsV2, StepsV2, MapV2, ReviewsV2, CtaV2];
 const FONTS = ['500 40px Oswald', '700 40px Oswald', '400 40px Inter', '600 40px Inter', '700 40px Inter', '800 40px Inter'];
 const DROP = ST[1];
 
@@ -27,9 +28,11 @@ const SFX: {src: string; at: number; vol: number}[] = [
   ...PIN_AT.map((at) => ({src: 'sfx-ting.wav', at: ST[4] + at + 4, vol: 0.45})),
   ...ST.slice(2).map((b) => ({src: 'sfx-whoosh.wav', at: b - PAN - 2, vol: 0.6})),
   {src: 'sfx-whoosh.wav', at: DROP - PAN - 2, vol: 0.5},
-  {src: 'sfx-whoosh.wav', at: ST[5] + SEND_AT - 6, vol: 0.5},
-  {src: 'sfx-ting.wav', at: ST[5] + SEND_AT + 4, vol: 0.4},
-  {src: 'sfx-impact.wav', at: ST[5] + END_HIT, vol: 0.5},
+  ...STAR_AT.map((at) => ({src: 'sfx-pop.wav', at: ST[5] + at, vol: 0.35})),
+  ...REVIEW_AT.map((at) => ({src: 'sfx-ting.wav', at: ST[5] + at + 6, vol: 0.35})),
+  {src: 'sfx-whoosh.wav', at: ST[6] + SEND_AT - 6, vol: 0.5},
+  {src: 'sfx-ting.wav', at: ST[6] + SEND_AT + 4, vol: 0.4},
+  {src: 'sfx-impact.wav', at: ST[6] + END_HIT, vol: 0.5},
 ];
 
 export const BracesAdV2: React.FC = () => {
@@ -45,7 +48,7 @@ export const BracesAdV2: React.FC = () => {
   const moving = pans.reduce((a, p) => a + Math.sin(Math.PI * p), 0);
 
   // "Punch" kecil pada setiap beat selepas drop
-  const beatOn = frame >= DROP && frame < ST[5] + END_HIT;
+  const beatOn = frame >= DROP && frame < ST[6] + END_HIT;
   const punch = beatOn ? 1 + 0.012 * Math.exp(-((frame - DROP) % 15) / 3.5) : 1;
 
   return (

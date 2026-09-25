@@ -23,8 +23,8 @@ export const BEAT = 15; // 120 BPM
 export const BAR = 60;
 
 // Babak (frame mula) — setiap sempadan jatuh tepat pada bar muzik
-export const ST = [0, 120, 300, 480, 660, 900];
-export const TOTAL2 = 1170;
+export const ST = [0, 120, 300, 480, 660, 900, 1140];
+export const TOTAL2 = 1410;
 export const PAN = 12;
 
 export const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;

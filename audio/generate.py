@@ -16,7 +16,7 @@ SR = 44100
 BPM = 120
 BEAT = 60 / BPM
 BAR = BEAT * 4
-DURATION = 1170 / 30  # sama dengan tempoh video (frame / fps)
+DURATION = 1410 / 30  # sama dengan tempoh video (frame / fps)
 OUT = os.path.join(os.path.dirname(__file__), '..', 'public', 'audio')
 rng = np.random.default_rng(7)
 
@@ -140,8 +140,8 @@ CHORDS = {
 }
 LOOP = ['Am', 'F', 'C', 'G']
 DROP_BAR = 2
-END_BAR = 18
-SECTION_BARS = (5, 8, 11, 15)  # sempadan scene (frame 300, 480, 660, 900)
+END_BAR = 22
+SECTION_BARS = (5, 8, 11, 15, 19)  # sempadan scene (frame 300, 480, 660, 900, 1140)
 
 drums = np.zeros(N)
 bass = np.zeros(N)
