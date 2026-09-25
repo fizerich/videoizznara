@@ -12,7 +12,7 @@ import {BRACKET_AT, BracesV2} from './stations/BracesV2';
 import {CARD_AT, OptionsV2} from './stations/OptionsV2';
 import {StepsV2} from './stations/StepsV2';
 import {MapV2, PIN_AT} from './stations/MapV2';
-import {CtaV2, END_HIT} from './stations/CtaV2';
+import {CtaV2, END_HIT, SEND_AT} from './stations/CtaV2';
 
 const STATIONS = [HookV2, BracesV2, OptionsV2, StepsV2, MapV2, CtaV2];
 const FONTS = ['500 40px Oswald', '700 40px Oswald', '400 40px Inter', '600 40px Inter', '700 40px Inter', '800 40px Inter'];
@@ -27,6 +27,8 @@ const SFX: {src: string; at: number; vol: number}[] = [
   ...PIN_AT.map((at) => ({src: 'sfx-ting.wav', at: ST[4] + at + 4, vol: 0.45})),
   ...ST.slice(2).map((b) => ({src: 'sfx-whoosh.wav', at: b - PAN - 2, vol: 0.6})),
   {src: 'sfx-whoosh.wav', at: DROP - PAN - 2, vol: 0.5},
+  {src: 'sfx-whoosh.wav', at: ST[5] + SEND_AT - 6, vol: 0.5},
+  {src: 'sfx-ting.wav', at: ST[5] + SEND_AT + 4, vol: 0.4},
   {src: 'sfx-impact.wav', at: ST[5] + END_HIT, vol: 0.5},
 ];
 

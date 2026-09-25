@@ -18,7 +18,7 @@ Wayar emas bercahaya menjadi benang merah cerita: garis bawah hook → wire brac
 | 300–480 | 3 pilihan, harga bergolek ala mesin slot | `src/v2/stations/OptionsV2.tsx` |
 | 480–660 | 5 langkah | `src/v2/stations/StepsV2.tsx` |
 | 660–900 | Peta, pin jatuh + radar | `src/v2/stations/MapV2.tsx` |
-| 900–1170 | CTA senyuman + hentakan penutup | `src/v2/stations/CtaV2.tsx` |
+| 900–1170 | CTA senyuman, seruan "Send Message" + hentakan penutup | `src/v2/stations/CtaV2.tsx` |
 
 **Audio** disintesis sendiri oleh `audio/generate.py` (bebas hak cipta): lagu pop-elektronik 120 BPM (Am–F–C–G) dengan intro riser, drop, sidechain, dan SFX (pop, ting, whoosh, impact). Kedudukan SFX ada dalam `src/v2/BracesAdV2.tsx`.
 

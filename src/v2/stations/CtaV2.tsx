@@ -4,6 +4,7 @@ import {B, BEAT, cl, D, ez, H, sp, Stage, Spark, Tag, Wire} from '../kit';
 import {Logo} from '../../components/ui';
 
 export const END_HIT = 180; // frame 1080 global — hentakan penutup muzik
+export const SEND_AT = 110; // seruan "Send Message" muncul
 
 const SMILE = 'M540 -40 C 540 60, 60 100, 60 400 C 60 640, 150 700, 150 820 C 260 1080, 820 1080, 930 820';
 
@@ -16,6 +17,7 @@ export const CtaV2: React.FC<{f: number}> = ({f}) => {
   const info = sp(f, 75, 14);
   const flash = interpolate(f, [END_HIT - 1, END_HIT, END_HIT + 14], [0, 0.7, 0], cl);
   const fam = sp(f, END_HIT, 12);
+  const send = sp(f, SEND_AT, 11);
 
   return (
     <>
@@ -127,9 +129,50 @@ export const CtaV2: React.FC<{f: number}> = ({f}) => {
         </div>
       </div>
 
+      {/* Seruan ke butang "Send Message" iklan FB/IG di bawah skrin */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 1485,
+          left: 50,
+          right: 50,
+          textAlign: 'center',
+          background: D.crimson,
+          border: `3px solid ${D.gold}`,
+          borderRadius: 24,
+          padding: '20px 26px 22px',
+          boxShadow: `0 0 ${30 + 20 * Math.sin(f / 6)}px rgba(192,26,66,0.7)`,
+          opacity: Math.min(1, send),
+          transform: `translateY(${(1 - send) * 120}px) scale(${0.9 + Math.min(send, 1) * 0.1})`,
+        }}
+      >
+        <div style={{fontFamily: H, fontWeight: 700, fontSize: 54, lineHeight: 1.1, color: D.cream, textTransform: 'uppercase'}}>
+          Klik butang <span style={{color: D.goldHi, background: 'rgba(0,0,0,0.25)', padding: '0 12px', borderRadius: 8}}>Send Message</span> di bawah
+        </div>
+        <div style={{fontFamily: B, fontWeight: 700, fontSize: 36, color: D.cream, marginTop: 8}}>
+          untuk booking temujanji anda sekarang!
+        </div>
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          top: 1690 + Math.abs(Math.sin((f - SEND_AT) / 5)) * 26,
+          left: 0,
+          right: 0,
+          display: 'flex',
+          justifyContent: 'center',
+          gap: 180,
+          opacity: ez(f, SEND_AT + 10, SEND_AT + 20),
+        }}
+      >
+        {[0, 1, 2].map((i) => (
+          <svg key={i} width="70" height="80" viewBox="0 0 70 80">
+            <path d="M8 8 L35 35 L62 8 M8 42 L35 69 L62 42" fill="none" stroke={D.gold} strokeWidth={9} strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        ))}
+      </div>
+
       <AbsoluteFill style={{background: D.goldHi, opacity: flash, mixBlendMode: 'screen', pointerEvents: 'none'}} />
-      {/* fade ke hitam di hujung */}
-      <AbsoluteFill style={{background: '#000', opacity: interpolate(f, [250, 270], [0, 1], cl)}} />
     </>
   );
 };
