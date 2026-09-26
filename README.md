@@ -1,11 +1,27 @@
-# Video Iklan Braces — Klinik Pergigian Izznara
+# Video Iklan — Klinik Pergigian Izznara
 
-Dua video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izznara: **Jejawi, Perlis** dan **Mergong, Alor Setar**. Nombor hubungan: WhatsApp 011-7027 2360 sahaja.
+Video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izznara: **Jejawi, Perlis** dan **Mergong, Alor Setar**. Nombor hubungan: WhatsApp 011-7027 2360 sahaja.
 
 | Versi | Konsep | Tempoh | Audio | Fail |
 |---|---|---|---|---|
 | V1 | Gaya Vox — kertas cream, highlighter, rajah | 42s | Tiada | [`out/izznara-braces-9x16.mp4`](out/izznara-braces-9x16.mp4) |
+| V3 | **"Hilang 1 Gigi" (remix)** — video talking-head doktor diedit semula: hook beranimasi, zoom punch-in, grafik kesan & rawatan, lower-third WhatsApp, kad penutup | 42.6s | Suara asal + muzik latar + SFX | [`out/izznara-hilang-gigi-v3-9x16.mp4`](out/izznara-hilang-gigi-v3-9x16.mp4) |
 | V2 | **"Benang Emas"** — hitam premium, satu wayar braces emas mengalir sepanjang video, kamera satu-take, disegerakkan dengan beat | 47s | Muzik + SFX | [`out/izznara-braces-v2-9x16.mp4`](out/izznara-braces-v2-9x16.mp4) |
+
+## V3 — "Hilang 1 Gigi" (remix video doktor)
+
+Sumber: video asal 37.5s (`public/ref/hilang-gigi-asal.mp4`). Suara dan kapsyen asal dikekalkan; lapisan baharu ditambah di atasnya. Masa diukur terus dari video asal (`src/v3/timeline.ts`).
+
+| Frame | Apa yang berubah | Fail |
+|---|---|---|
+| 0–140 | Kotak merah "Hilang 1 gigi?" diganti dengan kad hook beranimasi (gigi + ruang kosong berkelip, "Jangan ambil mudah!" bergegar) | `src/v3/scenes.tsx` → `HookCard` |
+| sepanjang | Zoom perlahan + punch-in pada setiap potongan, grade warna ringan, bar kemajuan, logo kecil | `src/v3/HilangGigiV3.tsx` |
+| 511–613 | Slaid kelabu → "Kalau dibiarkan": rahang beranimasi (gigi jiran condong, gigi bawah naik) + 3 kesan | `KesanPanel` |
+| 893–995 | Slaid kelabu → "Cara isi ruang gigi": Bridge, Dental implant, Denture dengan ikon | `RawatanPanel` |
+| 995–1127 | Lower-third WhatsApp semasa doktor ajak datang check | `CtaLowerThird` |
+| 1127–1277 | Kad penutup: logo, WhatsApp, dua cawangan, seruan "Send Message" | `EndCard` |
+
+Muzik latar lembut disintesis oleh `audio/generate_v3.py` (perlahan semasa doktor bercakap, naik penuh di kad penutup).
 
 ## V2 — "Benang Emas"
 
@@ -51,5 +67,7 @@ npm install
 npm run studio   # preview & edit dalam browser
 npm run render     # V1 -> out/izznara-braces-9x16.mp4
 npm run render:v2  # V2 -> out/izznara-braces-v2-9x16.mp4
+npm run render:v3  # V3 -> out/izznara-hilang-gigi-v3-9x16.mp4
+npm run audio:v3   # jana semula muzik latar V3
 npm run audio      # jana semula muzik & SFX (perlu numpy + scipy)
 ```
