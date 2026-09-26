@@ -10,8 +10,10 @@
     "render:v2": "remotion render IzznaraBracesV2 out/izznara-braces-v2-9x16.mp4",
     "render:v3": "remotion render IzznaraHilangGigiV3 out/izznara-hilang-gigi-v3-9x16.mp4",
     "render:v3pro": "remotion render IzznaraHilangGigiV3Pro out/izznara-hilang-gigi-v3-pro-9x16.mp4",
+    "render:funky": "remotion render IzznaraHilangGigiFunky out/izznara-hilang-gigi-funky-9x16.mp4 --crf=24",
     "audio": "python3 audio/generate.py",
-    "audio:v3": "python3 audio/generate_v3.py"
+    "audio:v3": "python3 audio/generate_v3.py",
+    "audio:funky": "python3 audio/generate_funky.py"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,9 @@
   "dependencies": {
     "@fontsource/caveat": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
+    "@fontsource/luckiest-guy": "^5.3.0",
     "@fontsource/oswald": "^5.3.0",
+    "@fontsource/poppins": "^5.3.0",
     "@remotion/cli": "^4.0.529",
     "@remotion/paths": "^4.0.529",
     "react": "^18.3.1",

@@ -5,6 +5,7 @@ import {FPS, TOTAL} from './theme';
 import {TOTAL2} from './v2/kit';
 import {HilangGigiV3} from './v3/HilangGigiV3';
 import {TOTAL3} from './v3/timeline';
+import {HilangGigiFunky} from './v3funky/HilangGigiFunky';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -36,6 +37,14 @@ export const RemotionRoot: React.FC = () => (
       id="IzznaraHilangGigiV3Pro"
       component={HilangGigiV3}
       defaultProps={{pro: true}}
+      durationInFrames={TOTAL3}
+      fps={FPS}
+      width={1080}
+      height={1920}
+    />
+    <Composition
+      id="IzznaraHilangGigiFunky"
+      component={HilangGigiFunky}
       durationInFrames={TOTAL3}
       fps={FPS}
       width={1080}

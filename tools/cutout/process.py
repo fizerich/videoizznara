@@ -14,38 +14,13 @@ yang telah dibersihkan, encode WebM VP9 dengan saluran alfa.
 """
 import cv2, numpy as np, subprocess, sys, time, os
 sys.path.insert(0, os.path.dirname(__file__))
-from capmask import frames, static, color_cand, K, F, S, W, H
+from capmask import frames, static, color_cand, icons, K, F, S, W, H
 
 SKIP = [(511, 613), (735, 995)]          # panel & klip doktor stok: tidak dipotong
 NOMASK = [(126, 134), (613, 620)]        # frame peralihan/kilat kuning
 TD = 6                                    # pelebaran mask merentas masa
 os.makedirs(f"{S}/mask", exist_ok=True)
 inr = lambda t, rs: any(a <= t < b for a, b in rs)
-
-def icons(img):
-    b, g, r = [img[..., i].astype(np.int16) for i in range(3)]
-    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    h, s, v = hsv[..., 0].astype(np.int16), hsv[..., 1], hsv[..., 2]
-    navy = ((b - r > 30) & (b - g > 5) & (v < 150)).astype(np.uint8)
-    cyan = ((h >= 80) & (h <= 105) & (s > 120) & (v > 120)).astype(np.uint8)
-    seed = cv2.morphologyEx(navy | cyan, cv2.MORPH_OPEN, np.ones((2, 2), np.uint8))
-    n, lab, st, _ = cv2.connectedComponentsWithStats(seed, 8)
-    keep = np.zeros(n, bool); keep[1:] = st[1:, cv2.CC_STAT_AREA] >= 150
-    seed = keep[lab]
-    if not seed.any(): return np.zeros((H, W), np.uint8)
-    near = cv2.dilate(seed.astype(np.uint8), np.ones((25, 25), np.uint8)) > 0
-    colorful = (s > 70) | (np.minimum(np.minimum(b, g), r) > 200)
-    # garisan "deringan" krim di sekeliling ikon
-    far = cv2.dilate(seed.astype(np.uint8), np.ones((121, 121), np.uint8)) > 0
-    cream = (r > 235) & (g > 222) & (r - b > 18) & (g - b > 10) & far
-    m = (seed | (colorful & near) | cream).astype(np.uint8)
-    m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (21, 21)))
-    cnts, _ = cv2.findContours(m, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    out = np.zeros_like(m)
-    for c in cnts:
-        if cv2.contourArea(c) > 600: cv2.drawContours(out, [c], -1, 1, -1)
-    out |= cream.astype(np.uint8)
-    return out
 
 def text(img, st):
     b, g, r = [img[..., i].astype(np.int16) for i in range(3)]
