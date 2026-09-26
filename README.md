@@ -53,3 +53,28 @@ npm run render     # V1 -> out/izznara-braces-9x16.mp4
 npm run render:v2  # V2 -> out/izznara-braces-v2-9x16.mp4
 npm run audio      # jana semula muzik & SFX (perlu numpy + scipy)
 ```
+
+---
+
+# Iklan Pendek Shopee — SUPCASE Magnetic Wallet + Stand
+
+Video iklan ringkas 23s (9:16, 1080×1920) untuk produk Shopee: https://s.shopee.com.my/4B0FoZtby6
+Fail: [`out/supcase-shopee-9x16.mp4`](out/supcase-shopee-9x16.mp4) · Kod: `src/supcase/SupcaseAd.tsx` · Muzik: `audio/generate_supcase.py`
+
+| Frame | Babak |
+|---|---|
+| 0–90 | Hook: "Dompet tebal? Kad bersepah? Phone takde stand?" (dipangkah satu-satu) |
+| 90–180 | DROP — "3 fungsi. 1 gajet." + produk |
+| 180–255 | Simpan 5 kad |
+| 255–330 | Kuasa magnet 3,000G, serasi MagSafe |
+| 330–420 | Lipat jadi stand — vlog, scroll, tonton video, video call |
+| 420–480 | RFID blocking + 1 kad RFID disertakan |
+| 480–540 | 7 pilihan warna, iPhone 12–17 (kecuali mini) |
+| 540–690 | CTA: 4.9★ 1.3k penilaian, RM151.77 selepas baucar, free shipping, COD, pulangan 15 hari, "Beli di Shopee" |
+
+Maklumat & gambar produk diambil dari halaman Shopee (26 Sep 2026) — gambar dalam `public/supcase/`. Harga boleh berubah; semak semula sebelum iklan disiarkan.
+
+```bash
+npm run audio:supcase   # jana semula muzik
+npm run render:supcase  # -> out/supcase-shopee-9x16.mp4
+```
