@@ -3,3 +3,4 @@ out/*.jpg
 out/*.png
 .DS_Store
 cutout-work/
+__pycache__/
