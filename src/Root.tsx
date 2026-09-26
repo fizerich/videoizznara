@@ -41,5 +41,23 @@ export const RemotionRoot: React.FC = () => (
       width={1080}
       height={1920}
     />
+    <Composition
+      id="SupcaseShopeeVO"
+      component={SupcaseAd}
+      defaultProps={{cut: 'full' as const, vo: true}}
+      durationInFrames={cutLength(CUTS.full)}
+      fps={FPS}
+      width={1080}
+      height={1920}
+    />
+    <Composition
+      id="SupcaseShopee15VO"
+      component={SupcaseAd}
+      defaultProps={{cut: 'short' as const, vo: true}}
+      durationInFrames={cutLength(CUTS.short)}
+      fps={FPS}
+      width={1080}
+      height={1920}
+    />
   </>
 );

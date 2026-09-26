@@ -12,6 +12,7 @@ import {
   staticFile,
   useCurrentFrame,
 } from 'remotion';
+import {VO_FRAMES} from './vo';
 import '@fontsource/oswald/500.css';
 import '@fontsource/oswald/700.css';
 import '@fontsource/inter/500.css';
@@ -590,7 +591,20 @@ export const CUTS = {
 } satisfies Record<string, Cut>;
 export const cutLength = (cut: Cut) => cut.scenes.reduce((a, [, len]) => a + len, 0);
 
-export const SupcaseAd: React.FC<{cut: keyof typeof CUTS}> = ({cut}) => {
+// Suara latar: setiap babak ada satu klip (audio/voiceover_supcase.py). Klip bermula pada awal
+// babaknya, atau sejurus selepas klip sebelumnya habis jika ia melimpah.
+const voSchedule = (scenes: Cut['scenes'], starts: number[]) => {
+  let prevEnd = -Infinity;
+  return scenes.map(([k, len], i) => {
+    const key = k === 'hook' && len < 90 ? 'hook-short' : k;
+    const {lead, len: n} = VO_FRAMES[key];
+    const at = Math.max(starts[i] + 2, prevEnd + 3);
+    prevEnd = at + n;
+    return {src: `audio/vo/${key}.mp3`, at, lead, n};
+  });
+};
+
+export const SupcaseAd: React.FC<{cut: keyof typeof CUTS; vo?: boolean}> = ({cut, vo = false}) => {
   const frame = useCurrentFrame();
   const [handle] = useState(() => delayRender('Memuatkan font'));
   useEffect(() => {
@@ -605,6 +619,11 @@ export const SupcaseAd: React.FC<{cut: keyof typeof CUTS}> = ({cut}) => {
     ...scenes.flatMap(([k, len], i) => SCENES[k].sfx(len).map((s) => ({...s, at: starts[i] + s.at}))),
     ...starts.slice(2).map((b) => ({src: 'sfx-whoosh.wav', at: b - T - 2, vol: 0.5})),
   ];
+
+  const voice = vo ? voSchedule(scenes, starts) : [];
+  // Muzik diperlahankan (ducking) semasa suara latar bercakap
+  const musicVol = (f: number) =>
+    0.85 * (1 - 0.55 * Math.max(0, ...voice.map((v) => interpolate(f, [v.at - 4, v.at + 2, v.at + v.n, v.at + v.n + 8], [0, 1, 1, 0], cl))));
 
   // "Punch" kecil pada setiap beat selepas drop
   const beatOn = frame >= DROP && frame < hitAt;
@@ -638,7 +657,12 @@ export const SupcaseAd: React.FC<{cut: keyof typeof CUTS}> = ({cut}) => {
       </AbsoluteFill>
       <AbsoluteFill style={{background: '#fff', opacity: flash * 0.8, pointerEvents: 'none'}} />
 
-      <Audio src={staticFile(`audio/${music}`)} volume={0.85} />
+      <Audio src={staticFile(`audio/${music}`)} volume={musicVol} />
+      {voice.map((v) => (
+        <Sequence key={v.src} from={v.at} durationInFrames={v.n + 6} layout="none">
+          <Audio src={staticFile(v.src)} startFrom={v.lead} volume={1} />
+        </Sequence>
+      ))}
       {sfx.map((s, i) => (
         <Sequence key={i} from={s.at} durationInFrames={60} layout="none">
           <Audio src={staticFile(`audio/${s.src}`)} volume={s.vol} />

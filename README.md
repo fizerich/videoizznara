@@ -65,6 +65,10 @@ Kod: `src/supcase/SupcaseAd.tsx` (susunan babak kedua-dua versi dalam `CUTS`) ·
 |---|---|---|---|
 | Penuh | 23s | Semua 8 babak (jadual di bawah) | [`out/supcase-shopee-9x16.mp4`](out/supcase-shopee-9x16.mp4) |
 | Pendek | 15s | Hook → 3 fungsi → 5 kad → magnet → stand → CTA (tanpa RFID & warna) | [`out/supcase-shopee-15s-9x16.mp4`](out/supcase-shopee-15s-9x16.mp4) |
+| Penuh + suara | 23s | Sama seperti Penuh, dengan suara latar | [`out/supcase-shopee-vo-9x16.mp4`](out/supcase-shopee-vo-9x16.mp4) |
+| Pendek + suara | 15s | Sama seperti Pendek, dengan suara latar | [`out/supcase-shopee-15s-vo-9x16.mp4`](out/supcase-shopee-15s-vo-9x16.mp4) |
+
+**Suara latar** — TTS neural Bahasa Melayu (`ms-MY-YasminNeural`, Microsoft Edge TTS melalui `edge-tts`). Skrip setiap babak dalam `audio/voiceover_supcase.py` (`LINES`); muzik diperlahankan automatik semasa suara bercakap. Tukar ke suara lelaki: `python3 audio/voiceover_supcase.py ms-MY-OsmanNeural`, kemudian render semula.
 
 Babak versi penuh:
 
@@ -85,4 +89,7 @@ Maklumat & gambar produk diambil dari halaman Shopee (26 Sep 2026) — gambar da
 npm run audio:supcase     # jana semula muzik kedua-dua versi
 npm run render:supcase    # 23s -> out/supcase-shopee-9x16.mp4
 npm run render:supcase15  # 15s -> out/supcase-shopee-15s-9x16.mp4
+npm run vo:supcase           # jana semula suara latar (perlu: pip install edge-tts)
+npm run render:supcase:vo    # 23s + suara
+npm run render:supcase15:vo  # 15s + suara
 ```
