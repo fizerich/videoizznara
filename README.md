@@ -58,8 +58,15 @@ npm run audio      # jana semula muzik & SFX (perlu numpy + scipy)
 
 # Iklan Pendek Shopee — SUPCASE Magnetic Wallet + Stand
 
-Video iklan ringkas 23s (9:16, 1080×1920) untuk produk Shopee: https://s.shopee.com.my/4B0FoZtby6
-Fail: [`out/supcase-shopee-9x16.mp4`](out/supcase-shopee-9x16.mp4) · Kod: `src/supcase/SupcaseAd.tsx` · Muzik: `audio/generate_supcase.py`
+Video iklan ringkas (9:16, 1080×1920) untuk produk Shopee: https://s.shopee.com.my/4B0FoZtby6
+Kod: `src/supcase/SupcaseAd.tsx` (susunan babak kedua-dua versi dalam `CUTS`) · Muzik: `audio/generate_supcase.py`
+
+| Versi | Tempoh | Babak | Fail |
+|---|---|---|---|
+| Penuh | 23s | Semua 8 babak (jadual di bawah) | [`out/supcase-shopee-9x16.mp4`](out/supcase-shopee-9x16.mp4) |
+| Pendek | 15s | Hook → 3 fungsi → 5 kad → magnet → stand → CTA (tanpa RFID & warna) | [`out/supcase-shopee-15s-9x16.mp4`](out/supcase-shopee-15s-9x16.mp4) |
+
+Babak versi penuh:
 
 | Frame | Babak |
 |---|---|
@@ -75,6 +82,7 @@ Fail: [`out/supcase-shopee-9x16.mp4`](out/supcase-shopee-9x16.mp4) · Kod: `src/
 Maklumat & gambar produk diambil dari halaman Shopee (26 Sep 2026) — gambar dalam `public/supcase/`. Harga boleh berubah; semak semula sebelum iklan disiarkan.
 
 ```bash
-npm run audio:supcase   # jana semula muzik
-npm run render:supcase  # -> out/supcase-shopee-9x16.mp4
+npm run audio:supcase     # jana semula muzik kedua-dua versi
+npm run render:supcase    # 23s -> out/supcase-shopee-9x16.mp4
+npm run render:supcase15  # 15s -> out/supcase-shopee-15s-9x16.mp4
 ```

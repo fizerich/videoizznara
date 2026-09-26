@@ -2,13 +2,15 @@
 Jana muzik latar untuk iklan pendek SUPCASE (Shopee).
 Disintesis sendiri — bebas hak cipta. SFX dikongsi dengan video Izznara (audio/generate.py).
 
-  python3 audio/generate_supcase.py
+  python3 audio/generate_supcase.py          # versi penuh 23s  -> supcase-music.wav
+  python3 audio/generate_supcase.py short    # versi 15s        -> supcase-music-15s.wav
 
-Output: public/audio/supcase-music.wav
 120 BPM -> 1 beat = 15 frame @30fps, 1 bar = 60 frame.
-Drop pada 3.0s (frame 90), hentakan penutup pada 21.0s (frame 630).
+Penuh: drop 3.0s (frame 90), hentakan penutup 21.0s (frame 630).
+15s:   drop 2.0s (frame 60), hentakan penutup 14.0s (frame 420).
 """
 import os
+import sys
 import numpy as np
 from scipy.signal import butter, lfilter
 from scipy.io import wavfile
@@ -16,9 +18,9 @@ from scipy.io import wavfile
 SR = 44100
 BEAT = 0.5
 BAR = BEAT * 4
-DROP = 3.0
-END_HIT = 21.0
-DURATION = 690 / 30
+SHORT = len(sys.argv) > 1 and sys.argv[1] == 'short'
+DROP, END_HIT, FRAMES, NAME = (2.0, 14.0, 450, 'supcase-music-15s.wav') if SHORT else (3.0, 21.0, 690, 'supcase-music.wav')
+DURATION = FRAMES / 30
 OUT = os.path.join(os.path.dirname(__file__), '..', 'public', 'audio')
 rng = np.random.default_rng(11)
 N = int(SR * DURATION)
@@ -105,9 +107,9 @@ CRASH = filt(rng.standard_normal(int(2 * SR)), 3500, 'high') * np.exp(-tt(2) / 0
 for f in CHORDS[3][1]:
     place(pads, filt(pad(midi(f), DROP), 900, 'low'), 0)
 for s in range(12):
-    place(drums, HC * (0.3 + s / 16), 1.0 + s * BEAT / 4 * 2 / 1.5)
+    place(drums, HC * (0.3 + s / 16), DROP - 2.0 + s / 6)
 for s in range(8):
-    place(drums, CL * (0.25 + s / 11), 2.0 + s * BEAT / 4)
+    place(drums, CL * (0.25 + s / 11), DROP - 1.0 + s * BEAT / 4)
 rt = tt(DROP)
 place(fx, filt(rng.standard_normal(len(rt)), 1500, 'high') * (rt / rt[-1]) ** 2 * 0.17, 0)
 
@@ -164,6 +166,6 @@ mix = np.tanh(mix / np.max(np.abs(mix)) * 1.15) * 0.89
 k = int(0.012 * SR)
 right = mix * 0.75 + np.concatenate([np.zeros(k), mix[:-k]]) * 0.25
 os.makedirs(OUT, exist_ok=True)
-wavfile.write(os.path.join(OUT, 'supcase-music.wav'), SR,
+wavfile.write(os.path.join(OUT, NAME), SR,
               (np.clip(np.stack([mix, right], axis=1), -1, 1) * 32767).astype(np.int16))
 print('OK', round(DURATION, 2), 's')

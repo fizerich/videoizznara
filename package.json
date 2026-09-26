@@ -9,8 +9,9 @@
     "render": "remotion render IzznaraBraces out/izznara-braces-9x16.mp4",
     "render:v2": "remotion render IzznaraBracesV2 out/izznara-braces-v2-9x16.mp4",
     "render:supcase": "remotion render SupcaseShopee out/supcase-shopee-9x16.mp4",
+    "render:supcase15": "remotion render SupcaseShopee15 out/supcase-shopee-15s-9x16.mp4",
     "audio": "python3 audio/generate.py",
-    "audio:supcase": "python3 audio/generate_supcase.py"
+    "audio:supcase": "python3 audio/generate_supcase.py && python3 audio/generate_supcase.py short"
   },
   "repository": {
     "type": "git",

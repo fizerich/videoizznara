@@ -3,7 +3,7 @@ import {BracesAd} from './BracesAd';
 import {BracesAdV2} from './v2/BracesAdV2';
 import {FPS, TOTAL} from './theme';
 import {TOTAL2} from './v2/kit';
-import {SupcaseAd, TOTAL_SUPCASE} from './supcase/SupcaseAd';
+import {CUTS, cutLength, SupcaseAd} from './supcase/SupcaseAd';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -26,7 +26,17 @@ export const RemotionRoot: React.FC = () => (
     <Composition
       id="SupcaseShopee"
       component={SupcaseAd}
-      durationInFrames={TOTAL_SUPCASE}
+      defaultProps={{cut: 'full' as const}}
+      durationInFrames={cutLength(CUTS.full)}
+      fps={FPS}
+      width={1080}
+      height={1920}
+    />
+    <Composition
+      id="SupcaseShopee15"
+      component={SupcaseAd}
+      defaultProps={{cut: 'short' as const}}
+      durationInFrames={cutLength(CUTS.short)}
       fps={FPS}
       width={1080}
       height={1920}

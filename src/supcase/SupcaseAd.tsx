@@ -19,12 +19,9 @@ import '@fontsource/inter/700.css';
 import '@fontsource/inter/800.css';
 
 // Iklan pendek (9:16) untuk SUPCASE Magnetic Wallet + Stand — pautan Shopee
-// 120 BPM: 1 beat = 15 frame. Drop pada frame 90, hentakan penutup pada frame 630.
+// 120 BPM: 1 beat = 15 frame. Dua versi: penuh 23s & pendek 15s (lihat CUTS di bawah).
 
 const FPS = 30;
-export const SC = [0, 90, 180, 255, 330, 420, 480, 540];
-export const TOTAL_SUPCASE = 690;
-const DROP = SC[1];
 const T = 8; // tempoh peralihan (frame)
 const END_HIT = 90; // dalam babak CTA
 
@@ -182,10 +179,11 @@ const Check: React.FC<{size?: number; color?: string}> = ({size = 40, color = C.
 );
 
 // ---------- babak ----------
-export const HOOK_AT = [12, 37, 62];
-const Hook: React.FC<{f: number}> = ({f}) => {
+const hookAt = (len: number) => (len >= 90 ? [12, 37, 62] : [6, 20, 34]);
+const Hook: React.FC<{f: number; len: number}> = ({f, len}) => {
   const lines = ['Dompet tebal?', 'Kad bersepah?', 'Phone takde stand?'];
-  const out = ez(f, 80, 90);
+  const HOOK_AT = hookAt(len);
+  const out = ez(f, len - 10, len);
   return (
     <AbsoluteFill>
       <DarkBg />
@@ -210,9 +208,11 @@ const Hook: React.FC<{f: number}> = ({f}) => {
             </div>
           );
         })}
-        <Pop f={f} at={68} style={{marginTop: 50}}>
-          <div style={{fontFamily: B, fontWeight: 700, fontSize: 52, color: C.dim}}>Ada satu jawapan…</div>
-        </Pop>
+        {len >= 90 ? (
+          <Pop f={f} at={68} style={{marginTop: 50}}>
+            <div style={{fontFamily: B, fontWeight: 700, fontSize: 52, color: C.dim}}>Ada satu jawapan…</div>
+          </Pop>
+        ) : null}
       </AbsoluteFill>
     </AbsoluteFill>
   );
@@ -337,7 +337,7 @@ const Magnet: React.FC<{f: number}> = ({f}) => {
 };
 
 export const MODE_AT = [10, 25, 40, 55];
-const Stand: React.FC<{f: number}> = ({f}) => {
+const Stand: React.FC<{f: number; len: number}> = ({f, len}) => {
   const tiles = [
     {src: 'vlog', t: 'Vlog'},
     {src: 'browse', t: 'Scroll'},
@@ -373,9 +373,11 @@ const Stand: React.FC<{f: number}> = ({f}) => {
           </React.Fragment>
         );
       })}
-      <Pop f={f} at={62} style={{position: 'absolute', bottom: 150, left: 0, right: 0, textAlign: 'center'}}>
-        <div style={{fontFamily: B, fontWeight: 800, fontSize: 48, color: C.white}}>Menegak atau melintang — ikut suka.</div>
-      </Pop>
+      {len >= 90 ? (
+        <Pop f={f} at={62} style={{position: 'absolute', bottom: 150, left: 0, right: 0, textAlign: 'center'}}>
+          <div style={{fontFamily: B, fontWeight: 800, fontSize: 48, color: C.white}}>Menegak atau melintang — ikut suka.</div>
+        </Pop>
+      ) : null}
     </AbsoluteFill>
   );
 };
@@ -559,29 +561,53 @@ const Cta: React.FC<{f: number}> = ({f}) => {
   );
 };
 
-const SCENES = [Hook, Hero, Cards, Magnet, Stand, Rfid, Colors, Cta];
+type Sfx = {src: string; at: number; vol: number};
+type Scene = {C: React.FC<{f: number; len: number}>; sfx: (len: number) => Sfx[]};
+const pops = (at: number[], vol = 0.4, src = 'sfx-pop.wav') => at.map((a) => ({src, at: a, vol}));
 
-const SFX: {src: string; at: number; vol: number}[] = [
-  ...HOOK_AT.map((at) => ({src: 'sfx-pop.wav', at, vol: 0.55})),
-  {src: 'sfx-impact.wav', at: DROP, vol: 0.6},
-  ...HERO_AT.map((at) => ({src: 'sfx-pop.wav', at: SC[1] + at, vol: 0.4})),
-  ...CARD_AT.map((at) => ({src: 'sfx-pop.wav', at: SC[2] + at, vol: 0.4})),
-  {src: 'sfx-ting.wav', at: SC[3] + 36, vol: 0.4},
-  ...MODE_AT.map((at) => ({src: 'sfx-pop.wav', at: SC[4] + at, vol: 0.4})),
-  ...CTA_AT.map((at) => ({src: 'sfx-ting.wav', at: SC[7] + at, vol: 0.3})),
-  ...SC.slice(2).map((b) => ({src: 'sfx-whoosh.wav', at: b - T - 2, vol: 0.5})),
-  {src: 'sfx-impact.wav', at: SC[7] + END_HIT, vol: 0.5},
-];
+const SCENES = {
+  hook: {C: Hook, sfx: (len) => pops(hookAt(len), 0.55)},
+  hero: {C: Hero, sfx: () => [{src: 'sfx-impact.wav', at: 0, vol: 0.6}, ...pops(HERO_AT)]},
+  cards: {C: Cards, sfx: () => pops(CARD_AT)},
+  magnet: {C: Magnet, sfx: () => [{src: 'sfx-ting.wav', at: 36, vol: 0.4}]},
+  stand: {C: Stand, sfx: () => pops(MODE_AT)},
+  rfid: {C: Rfid, sfx: () => []},
+  colors: {C: Colors, sfx: () => []},
+  cta: {C: Cta, sfx: () => [...pops(CTA_AT, 0.3, 'sfx-ting.wav'), {src: 'sfx-impact.wav', at: END_HIT, vol: 0.5}]},
+} satisfies Record<string, Scene>;
 
-export const SupcaseAd: React.FC = () => {
+type Cut = {music: string; scenes: [keyof typeof SCENES, number][]};
+// Setiap sempadan babak jatuh pada beat; muzik dijana dengan drop & hentakan yang sepadan
+export const CUTS = {
+  full: {
+    music: 'supcase-music.wav',
+    scenes: [['hook', 90], ['hero', 90], ['cards', 75], ['magnet', 75], ['stand', 90], ['rfid', 60], ['colors', 60], ['cta', 150]],
+  },
+  short: {
+    music: 'supcase-music-15s.wav',
+    scenes: [['hook', 60], ['hero', 75], ['cards', 60], ['magnet', 60], ['stand', 75], ['cta', 120]],
+  },
+} satisfies Record<string, Cut>;
+export const cutLength = (cut: Cut) => cut.scenes.reduce((a, [, len]) => a + len, 0);
+
+export const SupcaseAd: React.FC<{cut: keyof typeof CUTS}> = ({cut}) => {
   const frame = useCurrentFrame();
   const [handle] = useState(() => delayRender('Memuatkan font'));
   useEffect(() => {
     Promise.all(FONTS.map((f) => document.fonts.load(f))).then(() => continueRender(handle));
   }, [handle]);
 
+  const {music, scenes} = CUTS[cut] as Cut;
+  const starts = scenes.map((_, i) => scenes.slice(0, i).reduce((a, [, len]) => a + len, 0));
+  const DROP = starts[1];
+  const hitAt = starts[scenes.length - 1] + END_HIT;
+  const sfx: Sfx[] = [
+    ...scenes.flatMap(([k, len], i) => SCENES[k].sfx(len).map((s) => ({...s, at: starts[i] + s.at}))),
+    ...starts.slice(2).map((b) => ({src: 'sfx-whoosh.wav', at: b - T - 2, vol: 0.5})),
+  ];
+
   // "Punch" kecil pada setiap beat selepas drop
-  const beatOn = frame >= DROP && frame < SC[7] + END_HIT;
+  const beatOn = frame >= DROP && frame < hitAt;
   const punch = beatOn ? 1 + 0.012 * Math.exp(-((frame - DROP) % 15) / 3.5) : 1;
   // Kilat putih pada drop
   const flash = frame >= DROP ? Math.exp(-(frame - DROP) / 4) : 0;
@@ -589,9 +615,10 @@ export const SupcaseAd: React.FC = () => {
   return (
     <AbsoluteFill style={{background: C.ink, overflow: 'hidden'}}>
       <AbsoluteFill style={{transform: `scale(${punch})`}}>
-        {SCENES.map((S, i) => {
-          const start = SC[i];
-          const end = i + 1 < SC.length ? SC[i + 1] : TOTAL_SUPCASE;
+        {scenes.map(([k, len], i) => {
+          const S = SCENES[k].C;
+          const start = starts[i];
+          const end = start + len;
           const lead = i > 1 ? T : 0; // babak masuk sedikit awal, menyapu dari kanan
           if (frame < start - lead || frame >= end) return null;
           const p = lead ? ez(frame, start - lead, start) : 1;
@@ -604,15 +631,15 @@ export const SupcaseAd: React.FC = () => {
                 boxShadow: p < 1 ? '-30px 0 60px rgba(0,0,0,0.4)' : undefined,
               }}
             >
-              <S f={frame - start} />
+              <S f={frame - start} len={len} />
             </AbsoluteFill>
           );
         })}
       </AbsoluteFill>
       <AbsoluteFill style={{background: '#fff', opacity: flash * 0.8, pointerEvents: 'none'}} />
 
-      <Audio src={staticFile('audio/supcase-music.wav')} volume={0.85} />
-      {SFX.map((s, i) => (
+      <Audio src={staticFile(`audio/${music}`)} volume={0.85} />
+      {sfx.map((s, i) => (
         <Sequence key={i} from={s.at} durationInFrames={60} layout="none">
           <Audio src={staticFile(`audio/${s.src}`)} volume={s.vol} />
         </Sequence>
