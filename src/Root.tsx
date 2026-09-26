@@ -32,5 +32,14 @@ export const RemotionRoot: React.FC = () => (
       width={1080}
       height={1920}
     />
+    <Composition
+      id="IzznaraHilangGigiV3Pro"
+      component={HilangGigiV3}
+      defaultProps={{pro: true}}
+      durationInFrames={TOTAL3}
+      fps={FPS}
+      width={1080}
+      height={1920}
+    />
   </>
 );

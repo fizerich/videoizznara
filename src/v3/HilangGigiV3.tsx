@@ -8,7 +8,8 @@ import '@fontsource/inter/700.css';
 import '@fontsource/inter/800.css';
 import {cl, D, Grain} from '../v2/kit';
 import {Logo} from '../components/ui';
-import {CTA_FROM, CUTS, KESAN, RAWATAN, SRC_END, TOTAL3} from './timeline';
+import {CTA_FROM, CUTS, FG, KESAN, RAWATAN, SRC_END, TOTAL3} from './timeline';
+import {Captions, DoctorCard, InsertCards, StudioBackdrop} from './pro';
 import {CtaLowerThird, END_HIT3, EndCard, HookCard, KesanPanel, RawatanPanel} from './scenes';
 
 const FONTS = ['500 40px Oswald', '700 40px Oswald', '400 40px Inter', '600 40px Inter', '700 40px Inter', '800 40px Inter'];
@@ -38,7 +39,7 @@ const zoomAt = (f: number) => {
   return 1 + 0.035 * p + 0.045 * Math.exp(-(f - a) / 6);
 };
 
-export const HilangGigiV3: React.FC = () => {
+export const HilangGigiV3: React.FC<{pro?: boolean}> = ({pro = false}) => {
   const frame = useCurrentFrame();
   const [handle] = useState(() => delayRender('Memuatkan font'));
   useEffect(() => {
@@ -51,20 +52,43 @@ export const HilangGigiV3: React.FC = () => {
 
   return (
     <AbsoluteFill style={{background: D.bg, overflow: 'hidden'}}>
-      <Sequence durationInFrames={SRC_END} layout="none">
-        <AbsoluteFill
-          style={{
-            transform: `scale(${zoomAt(frame) + outro * 0.25})`,
-            transformOrigin: '50% 45%',
-            filter: `contrast(1.06) saturate(1.12) brightness(1.02) blur(${outro * 14}px)`,
-            opacity: 1 - outro * 0.6,
-          }}
-        >
-          <OffthreadVideo src={staticFile('ref/hilang-gigi-asal.mp4')} volume={0.9} />
-        </AbsoluteFill>
-        {/* vinyet lembut */}
-        <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, transparent 60%, rgba(0,0,0,0.35) 100%)'}} />
-      </Sequence>
+      {pro ? (
+        <Sequence durationInFrames={SRC_END} layout="none">
+          <StudioBackdrop f={frame} />
+          <AbsoluteFill
+            style={{
+              transform: `scale(${zoomAt(frame) + outro * 0.25})`,
+              transformOrigin: '50% 45%',
+              filter: `contrast(1.05) saturate(1.1) brightness(1.04) drop-shadow(0 0 40px rgba(232,199,133,0.35)) blur(${outro * 14}px)`,
+              opacity: 1 - outro * 0.6,
+            }}
+          >
+            <OffthreadVideo src={staticFile(FG)} transparent muted />
+          </AbsoluteFill>
+          <InsertCards frame={frame} />
+          <DoctorCard frame={frame} />
+          <Captions frame={frame} />
+          {/* kilat peralihan menutup frame kuning asal selepas panel pertama */}
+          <AbsoluteFill style={{background: D.goldHi, mixBlendMode: 'screen', opacity: interpolate(frame, [KESAN.to - 1, KESAN.to, KESAN.to + 8], [0, 0.7, 0], cl)}} />
+        </Sequence>
+      ) : (
+        <Sequence durationInFrames={SRC_END} layout="none">
+          <AbsoluteFill
+            style={{
+              transform: `scale(${zoomAt(frame) + outro * 0.25})`,
+              transformOrigin: '50% 45%',
+              filter: `contrast(1.06) saturate(1.12) brightness(1.02) blur(${outro * 14}px)`,
+              opacity: 1 - outro * 0.6,
+            }}
+          >
+            <OffthreadVideo src={staticFile('ref/hilang-gigi-asal.mp4')} volume={0.9} />
+          </AbsoluteFill>
+          {/* vinyet lembut */}
+          <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, transparent 60%, rgba(0,0,0,0.35) 100%)'}} />
+        </Sequence>
+      )}
+      {/* versi pro: suara asal dimainkan berasingan kerana video orang tiada audio */}
+      {pro ? <Audio src={staticFile('ref/hilang-gigi-asal.mp4')} volume={0.9} /> : null}
 
       <Sequence durationInFrames={140} layout="none">
         <HookCard f={frame} />

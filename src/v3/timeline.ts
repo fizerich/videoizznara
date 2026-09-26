@@ -17,3 +17,14 @@ export const CUTS = [0, HOOK_END, 207, 304, 363, KESAN.from, KESAN.to, 735, RAWA
 
 // Bahagian CTA doktor ("yang penting datang check dulu")
 export const CTA_FROM = RAWATAN.to;
+
+// Versi Pro (latar dibuang) — fail orang sahaja dengan saluran alfa
+export const FG = 'ref/hilang-gigi-fg.webm';
+// Foto close-up asal di bahagian atas skrin → dijadikan kad
+export const INSERTS: [number, number][] = [
+  [161, 206],
+  [271, 359],
+  [386, 429],
+];
+// Klip doktor stok → kad terapung (tidak dipotong)
+export const DOCTOR: [number, number] = [735, RAWATAN.from];

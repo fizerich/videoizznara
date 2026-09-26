@@ -6,6 +6,7 @@ Video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izznara: 
 |---|---|---|---|---|
 | V1 | Gaya Vox — kertas cream, highlighter, rajah | 42s | Tiada | [`out/izznara-braces-9x16.mp4`](out/izznara-braces-9x16.mp4) |
 | V3 | **"Hilang 1 Gigi" (remix)** — video talking-head doktor diedit semula: hook beranimasi, zoom punch-in, grafik kesan & rawatan, lower-third WhatsApp, kad penutup | 42.6s | Suara asal + muzik latar + SFX | [`out/izznara-hilang-gigi-v3-9x16.mp4`](out/izznara-hilang-gigi-v3-9x16.mp4) |
+| V3 Pro | V3 dengan **latar dibuang**: doktor dipotong keluar ke latar studio maroon, kapsyen lama dipadam & diganti kapsyen baharu perkataan-demi-perkataan | 42.6s | Suara asal + muzik + SFX | [`out/izznara-hilang-gigi-v3-pro-9x16.mp4`](out/izznara-hilang-gigi-v3-pro-9x16.mp4) |
 | V2 | **"Benang Emas"** — hitam premium, satu wayar braces emas mengalir sepanjang video, kamera satu-take, disegerakkan dengan beat | 47s | Muzik + SFX | [`out/izznara-braces-v2-9x16.mp4`](out/izznara-braces-v2-9x16.mp4) |
 
 ## V3 — "Hilang 1 Gigi" (remix video doktor)
@@ -22,6 +23,12 @@ Sumber: video asal 37.5s (`public/ref/hilang-gigi-asal.mp4`). Suara dan kapsyen 
 | 1127–1277 | Kad penutup: logo, WhatsApp, dua cawangan, seruan "Send Message" | `EndCard` |
 
 Muzik latar lembut disintesis oleh `audio/generate_v3.py` (perlahan semasa doktor bercakap, naik penuh di kad penutup).
+
+### V3 Pro — latar dibuang
+
+- `public/ref/hilang-gigi-fg.webm` — doktor sahaja (VP9 + alfa), dijana oleh `tools/cutout/process.py` (RobustVideoMatting + pemadaman kapsyen/ikon terbakar dengan inpainting). Arahan ada di atas fail skrip.
+- Latar studio, kad foto close-up, kad klip doktor stok dan kapsyen baharu: `src/v3/pro.tsx`.
+- Kapsyen dari transkripsi Whisper (dibetulkan manual): `src/v3/captions.ts` — edit teks/kata kunci di sini.
 
 ## V2 — "Benang Emas"
 
@@ -68,6 +75,7 @@ npm run studio   # preview & edit dalam browser
 npm run render     # V1 -> out/izznara-braces-9x16.mp4
 npm run render:v2  # V2 -> out/izznara-braces-v2-9x16.mp4
 npm run render:v3  # V3 -> out/izznara-hilang-gigi-v3-9x16.mp4
+npm run render:v3pro  # V3 Pro -> out/izznara-hilang-gigi-v3-pro-9x16.mp4
 npm run audio:v3   # jana semula muzik latar V3
 npm run audio      # jana semula muzik & SFX (perlu numpy + scipy)
 ```
