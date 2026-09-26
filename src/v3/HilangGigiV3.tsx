@@ -79,16 +79,13 @@ export const HilangGigiV3: React.FC = () => {
         <CtaLowerThird f={frame - CTA_FROM} />
       </Sequence>
 
-      {/* logo kecil + bar kemajuan (tidak dipaparkan di atas panel & kad penutup) */}
+      {/* logo kecil (bawah kanan) + bar kemajuan (tidak dipaparkan di atas panel & kad penutup) */}
       {frame < SRC_END && !inPanel ? (
         <div
           style={{
             position: 'absolute',
-            top: 70,
-            left: 0,
-            right: 0,
-            display: 'flex',
-            justifyContent: 'center',
+            bottom: 90,
+            right: 40,
             opacity: interpolate(frame, [140, 155], [0, 1], cl) * (1 - outro),
           }}
         >
