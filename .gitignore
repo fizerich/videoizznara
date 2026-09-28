@@ -2,3 +2,5 @@ node_modules/
 out/*.jpg
 out/*.png
 .DS_Store
+public/v3/source.mp4
+public/v3/voice.wav

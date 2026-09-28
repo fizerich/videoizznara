@@ -5,7 +5,31 @@ Dua video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izzna
 | Versi | Konsep | Tempoh | Audio | Fail |
 |---|---|---|---|---|
 | V1 | Gaya Vox — kertas cream, highlighter, rajah | 42s | Tiada | [`out/izznara-braces-9x16.mp4`](out/izznara-braces-9x16.mp4) |
+| V3 | **Edit pro** video talking-head Self-Ligating Braces (rakaman klinik) | 64.6s | Suara dibersihkan + muzik + SFX | [`out/izznara-self-ligating-pro-9x16.mp4`](out/izznara-self-ligating-pro-9x16.mp4) |
 | V2 | **"Benang Emas"** — hitam premium, satu wayar braces emas mengalir sepanjang video, kamera satu-take, disegerakkan dengan beat | 47s | Muzik + SFX | [`out/izznara-braces-v2-9x16.mp4`](out/izznara-braces-v2-9x16.mp4) |
+
+## V3 — Edit pro "Self-Ligating Braces"
+
+Video asal (60.7s, talking-head doktor + caption) dikekalkan, dengan lapisan tambahan dalam `src/v3/SelfLigatingPro.tsx`:
+
+| Masa | Perubahan |
+|---|---|
+| Keseluruhan | Color grade (kontras, saturasi, hangat) + vignette |
+| 20.1–21.2s | Typo "Self-Lageting Braces" ditutup dengan label berjenama "Self-Ligating" |
+| 40.0–47.0s | Slide kertas kelabu diganti kad maroon "Sesuai untuk siapa?", setiap item muncul ikut suara |
+| 60.4s → 64.6s | End card: logo, butang WhatsApp 011-7027 2360, cawangan Jejawi & Mergong |
+| Audio | Suara: high-pass, denoise, EQ, kompresor (`audio/voice_v3.sh`). Muzik latar lembut 90 BPM yang disintesis sendiri (`audio/generate_v3.py`) ~19 dB di bawah suara. Loudness akhir -14 LUFS (standard TikTok/IG/YouTube) |
+
+Video asal tidak disimpan dalam repo (75MB). Untuk render semula, muat turun dari
+[Google Drive](https://drive.google.com/file/d/1aNPlajUpNR31F2YN-a20LQXHwm8q_62h/view) ke `public/v3/source.mp4`, kemudian:
+
+```bash
+npm run audio:v3   # jana voice.wav, music.wav, sfx
+npm run render:v3  # -> out/v3-raw.mp4
+# normalisasi -14 LUFS + mampat:
+ffmpeg -i out/v3-raw.mp4 -c:v libx264 -preset slow -crf 21 -movflags +faststart \
+  -af loudnorm=I=-14:TP=-1.5:LRA=7 -c:a aac -b:a 192k out/izznara-self-ligating-pro-9x16.mp4
+```
 
 ## V2 — "Benang Emas"
 
