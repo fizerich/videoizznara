@@ -26,8 +26,10 @@ export const END_CARD = 165;
 
 // ---------- Konfigurasi ----------
 
-export type Icon = 'brush' | 'floss' | 'bottle' | 'calendar' | 'scan' | 'check' | 'tooth' | 'cross' | 'clock' | 'candy' | 'gum' | 'kid';
-export type Line = {at: number; text: string; strike?: boolean};
+export type Icon =
+  | 'brush' | 'floss' | 'bottle' | 'calendar' | 'scan' | 'check' | 'tooth' | 'cross' | 'clock' | 'candy' | 'gum' | 'kid'
+  | 'plane' | 'seat' | 'scream' | 'beach';
+export type Line = {at: number; text: string; strike?: boolean; plain?: boolean}; // plain: tanpa tanda ✓ (babak pembuka)
 // ev: masa peristiwa khas ikon (cth. floss: [turun, sisa tercabut]; calendar: [bulat]; scan: [titik]; cross: [pangkah])
 export type Phase = {from: number; icon?: Icon; ev?: number[]; lines: Line[]};
 export type Scene = {from: number; to: number; n?: number; kicker: string; title: string[]; hlAt: number; phases: Phase[]};
@@ -38,11 +40,12 @@ export type VoxConfig = {
   captions: [string, number, number][];
   zoomAt: number[];
   crop?: number; // bahagian atas video yang dipotong (0–1)
+  captionBg?: boolean; // latar gelap di belakang kapsyen (bila baju/latar video cerah)
   focusY?: number; // pusat zoom (%)
   total?: number; // bilangan tip untuk penunjuk 1..N
   scenes: Scene[];
   recap: {from: number; kicker: string; items: string[]}; // item: "Tajuk — nota"
-  end: {kicker: string; line1: string; line2: string; hl: string; info: string; contact: string};
+  end: {kicker: string; line1: string; line2: string; hl: string; info?: string; contact?: string};
   pops: number[];
   whooshes: number[];
 };
@@ -260,6 +263,52 @@ const IconArt: React.FC<{kind: Icon; f: number; p: number; ev: number[]}> = ({ki
           <Ink d="M -70 140 L -70 40 Q -70 10 -40 10 L 40 10 Q 70 10 70 40 L 70 140" p={q(0.5, 1)} w={7} />
         </g>
       );
+    case 'plane': {
+      const fly = p >= 1 ? Math.sin(f / 12) * 10 : 0;
+      return (
+        <g transform={`translate(0 ${fly}) rotate(-12)`}>
+          <Ink d="M -140 0 C -140 -22, 110 -22, 140 0 C 110 22, -140 22, -140 0 Z" p={q(0, 0.45)} w={7} />
+          <Ink d="M -10 -12 L -60 -110 L -20 -110 L 50 -12 M -10 12 L -60 110 L -20 110 L 50 12" p={q(0.35, 0.75)} w={7} />
+          <Ink d="M -120 -8 L -140 -60 L -110 -60 L -90 -14" p={q(0.6, 0.85)} w={6} />
+          <Ink d="M 70 -6 L 80 -6 M 40 -6 L 50 -6 M 10 -6 L 20 -6" p={q(0.8, 1)} w={6} c={V.pen} />
+          <Ink d="M -150 50 L -230 60 M -150 80 L -210 96" p={q(0.85, 1)} w={4} c={V.pen} />
+        </g>
+      );
+    }
+    case 'seat':
+      return (
+        <g>
+          {[-80, 80].map((x, i) => (
+            <g key={x}>
+              <Ink d={`M ${x - 55} -120 L ${x - 55} 60 L ${x + 55} 60 L ${x + 55} -120 Q ${x} -140 ${x - 55} -120`} p={q(0.1 * i, 0.5 + 0.1 * i)} w={7} />
+              <Ink d={`M ${x - 70} 60 L ${x - 70} 130 M ${x + 70} 60 L ${x + 70} 130 M ${x - 75} 60 L ${x + 75} 60`} p={q(0.4 + 0.1 * i, 0.8)} w={7} />
+            </g>
+          ))}
+          <circle cx={80} cy={-50} r={22 * q(0.85, 1)} fill={V.pen} />
+        </g>
+      );
+    case 'scream': {
+      const sh = p >= 1 ? Math.sin(f * 1.3) * 4 : 0;
+      return (
+        <g transform={`translate(${sh} 0)`}>
+          <Ink d="M 0 -130 C 90 -130, 110 -40, 100 30 C 90 110, 40 140, 0 140 C -40 140, -90 110, -100 30 C -110 -40, -90 -130, 0 -130 Z" p={q(0, 0.5)} w={7} />
+          <Ink d="M -50 -40 L -30 -30 M 50 -40 L 30 -30" p={q(0.45, 0.6)} w={8} />
+          <Ink d="M -22 30 C -30 100, 30 100, 22 30 C 16 10, -16 10, -22 30 Z" p={q(0.55, 0.85)} w={7} c={V.pen} />
+          <Ink d="M -150 -80 L -125 -60 M -160 -20 L -128 -18 M 150 -80 L 125 -60 M 160 -20 L 128 -18" p={q(0.8, 1)} w={6} c={V.pen} />
+        </g>
+      );
+    }
+    case 'beach': {
+      const w = p >= 1 ? Math.sin(f / 7) * 8 : 0;
+      return (
+        <g>
+          <Ink d="M 60 -80 A 50 50 0 1 1 59.9 -80" p={q(0, 0.35)} w={7} c={V.pen} />
+          <Ink d={`M -150 40 Q -110 ${20 + w} -75 40 T 0 40 T 75 40 T 150 40`} p={q(0.3, 0.65)} w={7} />
+          <Ink d={`M -150 90 Q -110 ${70 - w} -75 90 T 0 90 T 75 90 T 150 90`} p={q(0.5, 0.85)} w={7} />
+          <Ink d="M -110 -110 L -70 -70 M -70 -110 L -110 -70" p={q(0.85, 1)} w={7} c={V.pen} />
+        </g>
+      );
+    }
     default:
       return (
         <g>
@@ -371,7 +420,7 @@ const SceneView: React.FC<{f: number; s: Scene; tl: TL; total: number}> = ({f, s
                       transform: `translateY(${(1 - ls) * 18}px)`,
                     }}
                   >
-                    {big ? (
+                    {big && !l.plain ? (
                       <svg width={50} height={50} viewBox="-40 -40 80 80">
                         <Ink d={CHECK} p={u} w={9} c={V.pen} />
                       </svg>
@@ -450,7 +499,7 @@ const buildChunks = (captions: VoxConfig['captions'], at: (s: number) => number)
 
 type Chunk = ReturnType<typeof buildChunks>[number];
 
-const Captions: React.FC<{f: number; chunks: Chunk[]}> = ({f, chunks}) => {
+const Captions: React.FC<{f: number; chunks: Chunk[]; bg?: boolean}> = ({f, chunks, bg}) => {
   const c = chunks.find((x) => f >= x.from && f < x.to);
   if (!c) return null;
   const cur = c.words.reduce((k, w, i) => (f >= w.s ? i : k), -1);
@@ -469,6 +518,7 @@ const Captions: React.FC<{f: number; chunks: Chunk[]}> = ({f, chunks}) => {
         columnGap: 6,
         rowGap: 4,
         opacity: Math.min(fadeIn, fadeOut),
+        ...(bg ? {left: 60, right: 60, padding: '14px 18px', borderRadius: 18, background: 'rgba(23,20,18,0.78)'} : {}),
       }}
     >
       {c.words.map((w, i) => {
@@ -560,7 +610,7 @@ const Photo: React.FC<{f: number; cfg: VoxConfig; tl: TL; chunks: Chunk[]; zoomF
             </Sequence>
           ))}
         </div>
-        <Captions f={f} chunks={chunks} />
+        <Captions f={f} chunks={chunks} bg={cfg.captionBg} />
       </div>
       {[
         {l: -34, r: -38},
@@ -616,13 +666,15 @@ const EndCard: React.FC<{f: number; cfg: VoxConfig; tl: TL}> = ({f, cfg, tl}) =>
         {cfg.end.line2} <Hl p={hl}>{cfg.end.hl}</Hl>
       </div>
       <div style={{position: 'absolute', top: 1010, left: 84, right: 84, opacity: info, transform: `translateY(${(1 - info) * 20}px)`}}>
-        <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 38, color: V.soft}}>{cfg.end.info}</div>
+        {cfg.end.info ? <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 38, color: V.soft}}>{cfg.end.info}</div> : null}
+        {cfg.end.contact ? (
         <div style={{position: 'relative', display: 'inline-block', marginTop: 18, fontFamily: SANS, fontWeight: 800, fontSize: 58, color: V.ink}}>
           {cfg.end.contact}
           <svg width="100%" height={30} viewBox="0 0 100 30" preserveAspectRatio="none" style={{position: 'absolute', left: 0, top: '92%', overflow: 'visible'}}>
             <Ink d="M 0 10 C 30 18, 70 2, 100 12" p={u} w={4} c={V.pen} />
           </svg>
         </div>
+        ) : null}
       </div>
     </div>
   );

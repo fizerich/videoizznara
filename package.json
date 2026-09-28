@@ -10,6 +10,7 @@
     "render:v2": "remotion render IzznaraBracesV2 out/izznara-braces-v2-9x16.mp4",
     "render:v3": "remotion render IzznaraTipsV3 out/izznara-tips-jaga-gigi-9x16.mp4",
     "render:v4": "remotion render IzznaraTipsV4 out/izznara-tips-jaga-gigi-vox-9x16.mp4",
+    "render:v5": "remotion render MimpiV5 out/mimpi-menakutkan-vox-9x16.mp4",
     "audio": "python3 audio/generate.py && python3 audio/generate_v3.py"
   },
   "repository": {

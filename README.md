@@ -34,7 +34,13 @@ Kandungan & masa sama seperti V3 (kongsi `src/v3/data.ts`), tetapi tanpa tema Iz
 - Ikon garisan yang dilukis secara langsung: berus gigi, floss, botol ubat kumur, kalendar, kanta pembesar, tanda ✓.
 - Kapsyen minimal — putih, perkataan semasa disapu highlighter kuning.
 
-Fail: `src/v4/VoxV4.tsx`.
+Fail: `src/v4/VoxV4.tsx` (konfigurasi) di atas enjin `src/vox/VoxReel.tsx`.
+
+## V5 — "Mimpi Paling Menakutkan" (Vox minimalis)
+
+Video kedua (`public/video/mimpi-menakutkan.mov`): seorang budak bercerita tentang mimpinya — ke airport, naik flight kecil dengan kawan-kawan, pilih seat, semua menjerit, tak sempat ke pantai. Guna enjin Vox yang sama, 4 babak dengan ikon kapal terbang, kerusi, muka menjerit & pantai, kapsyen berlatar gelap (baju putih).
+
+Audio asal sangat bising — kapsyen disusun daripada transkrip Whisper dan bahagian yang tak jelas dibiarkan tanpa kapsyen. Betulkan teks dalam `src/v5/MimpiV5.tsx` jika perlu, kemudian `npm run render:v5` → `out/mimpi-menakutkan-vox-9x16.mp4`.
 
 ## V2 — "Benang Emas"
 
