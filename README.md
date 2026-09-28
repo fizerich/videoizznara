@@ -6,6 +6,7 @@ Dua video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izzna
 |---|---|---|---|---|
 | V1 | Gaya Vox — kertas cream, highlighter, rajah | 42s | Tiada | [`out/izznara-braces-9x16.mp4`](out/izznara-braces-9x16.mp4) |
 | V3 | **"4 Cara Jaga Gigi"** — video talking-head asal + kapsyen karaoke, panel tip animasi, jump-cut & zoom | ~1m 43s | Suara asal + muzik lembut + SFX | [`out/izznara-tips-jaga-gigi-9x16.mp4`](out/izznara-tips-jaga-gigi-9x16.mp4) |
+| V4 | **"4 Cara Jaga Gigi" — Vox minimalis** — kertas krim, dakwat hitam, highlighter kuning, video dalam bingkai foto | ~1m 43s | Suara asal + muzik lembut + SFX | [`out/izznara-tips-jaga-gigi-vox-9x16.mp4`](out/izznara-tips-jaga-gigi-vox-9x16.mp4) |
 | V2 | **"Benang Emas"** — hitam premium, satu wayar braces emas mengalir sepanjang video, kamera satu-take, disegerakkan dengan beat | 47s | Muzik + SFX | [`out/izznara-braces-v2-9x16.mp4`](out/izznara-braces-v2-9x16.mp4) |
 
 ## V3 — "4 Cara Jaga Gigi"
@@ -22,6 +23,18 @@ Video asal (`public/video/tips-jaga-gigi.mov`, dirakam dalam kereta) dijadikan r
 - **Ringkasan** 4 tip semasa penutup, kemudian **end card** Izznara + WhatsApp.
 
 Semua masa (potongan, kapsyen, tetingkap tip) ada dalam `src/v3/data.ts` — dalam saat video asal. Muzik latar dijana oleh `audio/generate_v3.py`.
+
+## V4 — "4 Cara Jaga Gigi" (Vox minimalis)
+
+Kandungan & masa sama seperti V3 (kongsi `src/v3/data.ts`), tetapi tanpa tema Izznara maroon/emas:
+
+- Latar kertas krim bertekstur yang "boil" sedikit ala stop-motion; palet hanya hitam, krim, highlighter kuning & pen merah.
+- Video diletak dalam **bingkai foto bertampal pita** di bawah — siling kereta dipotong, ruang atas jadi halaman untuk tipografi.
+- Tajuk tebal hitam dengan sapuan highlighter, anotasi tulisan tangan (Caveat), garis bawah & coretan pen merah.
+- Ikon garisan yang dilukis secara langsung: berus gigi, floss, botol ubat kumur, kalendar, kanta pembesar, tanda ✓.
+- Kapsyen minimal — putih, perkataan semasa disapu highlighter kuning.
+
+Fail: `src/v4/VoxV4.tsx`.
 
 ## V2 — "Benang Emas"
 

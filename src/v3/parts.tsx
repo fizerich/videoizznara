@@ -400,7 +400,7 @@ export const Panel: React.FC<{
 // ---------- Kapsyen karaoke ----------
 
 type Word = {t: string; key: boolean; s: number};
-const CHUNKS = CAPTIONS.map(([text, s, e], i) => {
+export const CHUNKS = CAPTIONS.map(([text, s, e], i) => {
   const a = at(s);
   const b = at(e);
   const next = i + 1 < CAPTIONS.length ? at(CAPTIONS[i + 1][1]) : Infinity;

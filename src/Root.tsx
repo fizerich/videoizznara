@@ -5,6 +5,7 @@ import {FPS, TOTAL} from './theme';
 import {TOTAL2} from './v2/kit';
 import {TipsV3} from './v3/TipsV3';
 import {TOTAL3} from './v3/data';
+import {VoxV4} from './v4/VoxV4';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -27,6 +28,14 @@ export const RemotionRoot: React.FC = () => (
     <Composition
       id="IzznaraTipsV3"
       component={TipsV3}
+      durationInFrames={TOTAL3}
+      fps={FPS}
+      width={1080}
+      height={1920}
+    />
+    <Composition
+      id="IzznaraTipsV4"
+      component={VoxV4}
       durationInFrames={TOTAL3}
       fps={FPS}
       width={1080}

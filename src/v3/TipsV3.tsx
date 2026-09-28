@@ -25,7 +25,7 @@ const FONTS = ['500 40px Oswald', '700 40px Oswald', '600 40px Inter', '700 40px
 // ---------- Lapisan video: jump-cut + zoom bertukar ----------
 
 const ZOOM_F = ZOOM_AT.map(at);
-const zoomAt = (f: number) => {
+export const zoomAt = (f: number) => {
   let k = 0;
   while (k + 1 < ZOOM_F.length && ZOOM_F[k + 1] <= f) k++;
   const seg0 = ZOOM_F[k];
