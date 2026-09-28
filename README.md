@@ -7,6 +7,26 @@ Dua video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izzna
 | V1 | Gaya Vox — kertas cream, highlighter, rajah | 42s | Tiada | [`out/izznara-braces-9x16.mp4`](out/izznara-braces-9x16.mp4) |
 | V2 | **"Benang Emas"** — hitam premium, satu wayar braces emas mengalir sepanjang video, kamera satu-take, disegerakkan dengan beat | 47s | Muzik + SFX | [`out/izznara-braces-v2-9x16.mp4`](out/izznara-braces-v2-9x16.mp4) |
 
+## V3 — Re-edit "Ads 5 - Bridge" (Dental Bridge)
+
+Video talking-head asal (33s) diedit semula supaya nampak lebih premium: [`out/izznara-dental-bridge-reedit-9x16.mp4`](out/izznara-dental-bridge-reedit-9x16.mp4) — 37s.
+
+| Masa | Perubahan | Fail |
+|---|---|---|
+| 0–3s | Kotak kuning hook diganti kad maroon/emas "TAK SUKA PAKAI GIGI PALSU?" | `src/bridge/parts.tsx` (`HookCard`) |
+| Sepanjang | Gred warna hangat + vignette, push-in perlahan, zum & kilatan cahaya pada setiap potongan, bar jenama + bar kemajuan | `src/bridge/BridgeAd.tsx` |
+| 12.2–16.7s | Latar kertas kelabu diganti babak "Kelebihan Dental Bridge" (ilustrasi jambatan gigi + 3 kad, disegerakkan dengan suara) | `Benefits` |
+| 28.3s–akhir | Butang WhatsApp lower-third | `WaLower` |
+| 33.2–37s | Kad akhir baharu: logo, "Ganti gigi hilang tanpa buka & pakai", 2x ansuran, WhatsApp, cawangan | `EndCard` |
+
+Audio asal dikekalkan; ditambah SFX (whoosh/pop/ting) dan sting penutup (`audio/generate_bridge.py`).
+Video sumber tidak disimpan dalam repo — muat turun dahulu:
+
+```bash
+npm run fetch:bridge   # -> public/source/ads5-bridge.mp4
+npm run render:bridge  # -> out/izznara-dental-bridge-reedit-9x16.mp4
+```
+
 ## V2 — "Benang Emas"
 
 Wayar emas bercahaya menjadi benang merah cerita: garis bawah hook → wire braces → rel harga → garis masa 5 langkah → laluan Jejawi–Mergong → rel ulasan Google → lengkung senyuman di CTA. Setiap sempadan babak jatuh tepat pada bar muzik (120 BPM, 1 beat = 15 frame).
