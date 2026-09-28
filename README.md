@@ -5,7 +5,23 @@ Dua video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izzna
 | Versi | Konsep | Tempoh | Audio | Fail |
 |---|---|---|---|---|
 | V1 | Gaya Vox — kertas cream, highlighter, rajah | 42s | Tiada | [`out/izznara-braces-9x16.mp4`](out/izznara-braces-9x16.mp4) |
+| V3 | **"4 Cara Jaga Gigi"** — video talking-head asal + kapsyen karaoke, panel tip animasi, jump-cut & zoom | ~1m 43s | Suara asal + muzik lembut + SFX | [`out/izznara-tips-jaga-gigi-9x16.mp4`](out/izznara-tips-jaga-gigi-9x16.mp4) |
 | V2 | **"Benang Emas"** — hitam premium, satu wayar braces emas mengalir sepanjang video, kamera satu-take, disegerakkan dengan beat | 47s | Muzik + SFX | [`out/izznara-braces-v2-9x16.mp4`](out/izznara-braces-v2-9x16.mp4) |
+
+## V3 — "4 Cara Jaga Gigi"
+
+Video asal (`public/video/tips-jaga-gigi.mov`, dirakam dalam kereta) dijadikan reel 9:16 yang lebih hidup:
+
+- **Jump-cut** — senyap panjang dan "Ok" meleret dibuang (111s → ~97s), zoom bertukar pada setiap potongan & ayat penting.
+- **Kapsyen karaoke** — perkataan semasa disorot, kata kunci warna emas. Teks disemak dari transkrip Whisper.
+- **Panel tip animasi** di ruang siling (atas kepala), muncul tepat bila disebut:
+  1. Berus gigi — berus menggosok + buih, "2× sehari", pagi ☀ & malam ☾
+  2. Floss — benang floss masuk celah gigi & keluarkan sisa makanan
+  3. Ubat kumur — botol berbuih, "jangan terlalu kerap", 1× seminggu
+  4. Check-up — kalendar "1× setahun", kanta pembesar kesan karies → rawatan awal ✓
+- **Ringkasan** 4 tip semasa penutup, kemudian **end card** Izznara + WhatsApp.
+
+Semua masa (potongan, kapsyen, tetingkap tip) ada dalam `src/v3/data.ts` — dalam saat video asal. Muzik latar dijana oleh `audio/generate_v3.py`.
 
 ## V2 — "Benang Emas"
 
@@ -51,5 +67,6 @@ npm install
 npm run studio   # preview & edit dalam browser
 npm run render     # V1 -> out/izznara-braces-9x16.mp4
 npm run render:v2  # V2 -> out/izznara-braces-v2-9x16.mp4
+npm run render:v3  # V3 -> out/izznara-tips-jaga-gigi-9x16.mp4
 npm run audio      # jana semula muzik & SFX (perlu numpy + scipy)
 ```

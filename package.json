@@ -8,7 +8,8 @@
     "studio": "remotion studio",
     "render": "remotion render IzznaraBraces out/izznara-braces-9x16.mp4",
     "render:v2": "remotion render IzznaraBracesV2 out/izznara-braces-v2-9x16.mp4",
-    "audio": "python3 audio/generate.py"
+    "render:v3": "remotion render IzznaraTipsV3 out/izznara-tips-jaga-gigi-9x16.mp4",
+    "audio": "python3 audio/generate.py && python3 audio/generate_v3.py"
   },
   "repository": {
     "type": "git",
