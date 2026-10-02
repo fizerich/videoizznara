@@ -1,0 +1,736 @@
+[
+ {
+  "start": 0.0,
+  "end": 4.04,
+  "text": " Gigi anda berdenyut-denyut tanpa henti hingga sukar untuk tidur malam?",
+  "words": [
+   {
+    "w": " Gigi",
+    "s": 0.0,
+    "e": 0.6
+   },
+   {
+    "w": " anda",
+    "s": 0.6,
+    "e": 0.92
+   },
+   {
+    "w": " berdenyut",
+    "s": 0.92,
+    "e": 1.42
+   },
+   {
+    "w": "-denyut",
+    "s": 1.42,
+    "e": 1.7
+   },
+   {
+    "w": " tanpa",
+    "s": 1.7,
+    "e": 2.1
+   },
+   {
+    "w": " henti",
+    "s": 2.1,
+    "e": 2.4
+   },
+   {
+    "w": " hingga",
+    "s": 2.4,
+    "e": 2.68
+   },
+   {
+    "w": " sukar",
+    "s": 2.68,
+    "e": 3.14
+   },
+   {
+    "w": " untuk",
+    "s": 3.14,
+    "e": 3.34
+   },
+   {
+    "w": " tidur",
+    "s": 3.34,
+    "e": 3.68
+   },
+   {
+    "w": " malam?",
+    "s": 3.68,
+    "e": 4.04
+   }
+  ]
+ },
+ {
+  "start": 4.44,
+  "end": 8.92,
+  "text": " Raseng nilu yang teramat sangat setiap kali menikmati makanan panas atau minuman sejuk?",
+  "words": [
+   {
+    "w": " Raseng",
+    "s": 4.44,
+    "e": 4.88
+   },
+   {
+    "w": " nilu",
+    "s": 4.88,
+    "e": 5.18
+   },
+   {
+    "w": " yang",
+    "s": 5.18,
+    "e": 5.32
+   },
+   {
+    "w": " teramat",
+    "s": 5.32,
+    "e": 5.68
+   },
+   {
+    "w": " sangat",
+    "s": 5.68,
+    "e": 6.12
+   },
+   {
+    "w": " setiap",
+    "s": 6.12,
+    "e": 6.52
+   },
+   {
+    "w": " kali",
+    "s": 6.52,
+    "e": 6.66
+   },
+   {
+    "w": " menikmati",
+    "s": 6.66,
+    "e": 7.18
+   },
+   {
+    "w": " makanan",
+    "s": 7.18,
+    "e": 7.52
+   },
+   {
+    "w": " panas",
+    "s": 7.52,
+    "e": 8.04
+   },
+   {
+    "w": " atau",
+    "s": 8.04,
+    "e": 8.22
+   },
+   {
+    "w": " minuman",
+    "s": 8.22,
+    "e": 8.54
+   },
+   {
+    "w": " sejuk?",
+    "s": 8.54,
+    "e": 8.92
+   }
+  ]
+ },
+ {
+  "start": 9.4,
+  "end": 15.16,
+  "text": " Masalah ini berlaku apabila jangkitan bakteria telah merebat jauh ke dalam pulpa dan saraf gigi anda.",
+  "words": [
+   {
+    "w": " Masalah",
+    "s": 9.4,
+    "e": 9.9
+   },
+   {
+    "w": " ini",
+    "s": 9.9,
+    "e": 10.22
+   },
+   {
+    "w": " berlaku",
+    "s": 10.22,
+    "e": 10.7
+   },
+   {
+    "w": " apabila",
+    "s": 10.7,
+    "e": 11.2
+   },
+   {
+    "w": " jangkitan",
+    "s": 11.2,
+    "e": 11.66
+   },
+   {
+    "w": " bakteria",
+    "s": 11.66,
+    "e": 12.34
+   },
+   {
+    "w": " telah",
+    "s": 12.34,
+    "e": 12.66
+   },
+   {
+    "w": " merebat",
+    "s": 12.66,
+    "e": 12.94
+   },
+   {
+    "w": " jauh",
+    "s": 12.94,
+    "e": 13.44
+   },
+   {
+    "w": " ke",
+    "s": 13.44,
+    "e": 13.5
+   },
+   {
+    "w": " dalam",
+    "s": 13.5,
+    "e": 13.7
+   },
+   {
+    "w": " pulpa",
+    "s": 13.7,
+    "e": 14.16
+   },
+   {
+    "w": " dan",
+    "s": 14.16,
+    "e": 14.36
+   },
+   {
+    "w": " saraf",
+    "s": 14.36,
+    "e": 14.68
+   },
+   {
+    "w": " gigi",
+    "s": 14.68,
+    "e": 14.9
+   },
+   {
+    "w": " anda.",
+    "s": 14.9,
+    "e": 15.16
+   }
+  ]
+ },
+ {
+  "start": 15.78,
+  "end": 20.9,
+  "text": " Ramah yang bimbang dan menyangka bahawa mencabut gigi adalah satu-satunya jalan penyelesaian.",
+  "words": [
+   {
+    "w": " Ramah",
+    "s": 15.78,
+    "e": 16.32
+   },
+   {
+    "w": " yang",
+    "s": 16.32,
+    "e": 16.46
+   },
+   {
+    "w": " bimbang",
+    "s": 16.46,
+    "e": 16.96
+   },
+   {
+    "w": " dan",
+    "s": 16.96,
+    "e": 17.12
+   },
+   {
+    "w": " menyangka",
+    "s": 17.12,
+    "e": 17.52
+   },
+   {
+    "w": " bahawa",
+    "s": 17.52,
+    "e": 17.96
+   },
+   {
+    "w": " mencabut",
+    "s": 17.96,
+    "e": 18.62
+   },
+   {
+    "w": " gigi",
+    "s": 18.62,
+    "e": 18.96
+   },
+   {
+    "w": " adalah",
+    "s": 18.96,
+    "e": 19.14
+   },
+   {
+    "w": " satu",
+    "s": 19.14,
+    "e": 19.54
+   },
+   {
+    "w": "-satunya",
+    "s": 19.54,
+    "e": 19.9
+   },
+   {
+    "w": " jalan",
+    "s": 19.9,
+    "e": 20.16
+   },
+   {
+    "w": " penyelesaian.",
+    "s": 20.16,
+    "e": 20.9
+   }
+  ]
+ },
+ {
+  "start": 21.38,
+  "end": 24.74,
+  "text": " Hakikatnya anda tidak perlu kehilangan gigi tersebut.",
+  "words": [
+   {
+    "w": " Hakikatnya",
+    "s": 21.38,
+    "e": 22.18
+   },
+   {
+    "w": " anda",
+    "s": 22.18,
+    "e": 22.7
+   },
+   {
+    "w": " tidak",
+    "s": 22.7,
+    "e": 22.98
+   },
+   {
+    "w": " perlu",
+    "s": 22.98,
+    "e": 23.4
+   },
+   {
+    "w": " kehilangan",
+    "s": 23.4,
+    "e": 23.88
+   },
+   {
+    "w": " gigi",
+    "s": 23.88,
+    "e": 24.3
+   },
+   {
+    "w": " tersebut.",
+    "s": 24.3,
+    "e": 24.74
+   }
+  ]
+ },
+ {
+  "start": 25.700000000000003,
+  "end": 30.18,
+  "text": " Rawatan aka adalah penyelesaian terbaik untuk menyelamatkan gigi semula jadi anda.",
+  "words": [
+   {
+    "w": " Rawatan",
+    "s": 25.700000000000003,
+    "e": 26.46
+   },
+   {
+    "w": " aka",
+    "s": 26.46,
+    "e": 26.82
+   },
+   {
+    "w": " adalah",
+    "s": 26.82,
+    "e": 27.16
+   },
+   {
+    "w": " penyelesaian",
+    "s": 27.16,
+    "e": 27.84
+   },
+   {
+    "w": " terbaik",
+    "s": 27.84,
+    "e": 28.44
+   },
+   {
+    "w": " untuk",
+    "s": 28.44,
+    "e": 28.64
+   },
+   {
+    "w": " menyelamatkan",
+    "s": 28.64,
+    "e": 29.22
+   },
+   {
+    "w": " gigi",
+    "s": 29.22,
+    "e": 29.44
+   },
+   {
+    "w": " semula",
+    "s": 29.44,
+    "e": 29.72
+   },
+   {
+    "w": " jadi",
+    "s": 29.72,
+    "e": 29.94
+   },
+   {
+    "w": " anda.",
+    "s": 29.94,
+    "e": 30.18
+   }
+  ]
+ },
+ {
+  "start": 30.68,
+  "end": 34.64,
+  "text": " Melalui prosedur ini, doktor gigi akan membuang tisu saraf yang rosak,",
+  "words": [
+   {
+    "w": " Melalui",
+    "s": 30.68,
+    "e": 31.16
+   },
+   {
+    "w": " prosedur",
+    "s": 31.16,
+    "e": 31.68
+   },
+   {
+    "w": " ini,",
+    "s": 31.68,
+    "e": 31.94
+   },
+   {
+    "w": " doktor",
+    "s": 32.32,
+    "e": 32.52
+   },
+   {
+    "w": " gigi",
+    "s": 32.52,
+    "e": 32.88
+   },
+   {
+    "w": " akan",
+    "s": 32.88,
+    "e": 33.04
+   },
+   {
+    "w": " membuang",
+    "s": 33.04,
+    "e": 33.54
+   },
+   {
+    "w": " tisu",
+    "s": 33.54,
+    "e": 33.76
+   },
+   {
+    "w": " saraf",
+    "s": 33.76,
+    "e": 34.12
+   },
+   {
+    "w": " yang",
+    "s": 34.12,
+    "e": 34.22
+   },
+   {
+    "w": " rosak,",
+    "s": 34.22,
+    "e": 34.64
+   }
+  ]
+ },
+ {
+  "start": 34.98,
+  "end": 39.42,
+  "text": " membahsmi kuman pembawa jangkitan dan menutup ruang aka dengan bahan tampalan khas.",
+  "words": [
+   {
+    "w": " membahsmi",
+    "s": 34.98,
+    "e": 35.5
+   },
+   {
+    "w": " kuman",
+    "s": 35.5,
+    "e": 35.78
+   },
+   {
+    "w": " pembawa",
+    "s": 35.78,
+    "e": 36.16
+   },
+   {
+    "w": " jangkitan",
+    "s": 36.16,
+    "e": 36.64
+   },
+   {
+    "w": " dan",
+    "s": 36.64,
+    "e": 37.1
+   },
+   {
+    "w": " menutup",
+    "s": 37.1,
+    "e": 37.62
+   },
+   {
+    "w": " ruang",
+    "s": 37.62,
+    "e": 37.84
+   },
+   {
+    "w": " aka",
+    "s": 37.84,
+    "e": 38.14
+   },
+   {
+    "w": " dengan",
+    "s": 38.14,
+    "e": 38.36
+   },
+   {
+    "w": " bahan",
+    "s": 38.36,
+    "e": 38.72
+   },
+   {
+    "w": " tampalan",
+    "s": 38.72,
+    "e": 39.06
+   },
+   {
+    "w": " khas.",
+    "s": 39.06,
+    "e": 39.42
+   }
+  ]
+ },
+ {
+  "start": 39.86,
+  "end": 42.52,
+  "text": " Rasa sakit yang berpanjangan akan hilang sepenuhnya.",
+  "words": [
+   {
+    "w": " Rasa",
+    "s": 39.86,
+    "e": 40.18
+   },
+   {
+    "w": " sakit",
+    "s": 40.18,
+    "e": 40.54
+   },
+   {
+    "w": " yang",
+    "s": 40.54,
+    "e": 40.68
+   },
+   {
+    "w": " berpanjangan",
+    "s": 40.68,
+    "e": 41.18
+   },
+   {
+    "w": " akan",
+    "s": 41.18,
+    "e": 41.46
+   },
+   {
+    "w": " hilang",
+    "s": 41.46,
+    "e": 41.98
+   },
+   {
+    "w": " sepenuhnya.",
+    "s": 41.98,
+    "e": 42.52
+   }
+  ]
+ },
+ {
+  "start": 43.12,
+  "end": 49.36,
+  "text": " Anda boleh kembali menikmati hidangan kegemaran dengan selesa serta tersenyum yakin tanpa rasa takut.",
+  "words": [
+   {
+    "w": " Anda",
+    "s": 43.12,
+    "e": 43.58
+   },
+   {
+    "w": " boleh",
+    "s": 43.58,
+    "e": 43.88
+   },
+   {
+    "w": " kembali",
+    "s": 43.88,
+    "e": 44.34
+   },
+   {
+    "w": " menikmati",
+    "s": 44.34,
+    "e": 44.82
+   },
+   {
+    "w": " hidangan",
+    "s": 44.82,
+    "e": 45.18
+   },
+   {
+    "w": " kegemaran",
+    "s": 45.18,
+    "e": 45.78
+   },
+   {
+    "w": " dengan",
+    "s": 45.78,
+    "e": 45.96
+   },
+   {
+    "w": " selesa",
+    "s": 45.96,
+    "e": 46.54
+   },
+   {
+    "w": " serta",
+    "s": 46.54,
+    "e": 47.28
+   },
+   {
+    "w": " tersenyum",
+    "s": 47.28,
+    "e": 47.86
+   },
+   {
+    "w": " yakin",
+    "s": 47.86,
+    "e": 48.3
+   },
+   {
+    "w": " tanpa",
+    "s": 48.3,
+    "e": 48.76
+   },
+   {
+    "w": " rasa",
+    "s": 48.76,
+    "e": 48.94
+   },
+   {
+    "w": " takut.",
+    "s": 48.94,
+    "e": 49.36
+   }
+  ]
+ },
+ {
+  "start": 49.78,
+  "end": 51.76,
+  "text": " Jangan biarkan kesakitan berlarutan lagi.",
+  "words": [
+   {
+    "w": " Jangan",
+    "s": 49.78,
+    "e": 50.14
+   },
+   {
+    "w": " biarkan",
+    "s": 50.14,
+    "e": 50.5
+   },
+   {
+    "w": " kesakitan",
+    "s": 50.5,
+    "e": 50.96
+   },
+   {
+    "w": " berlarutan",
+    "s": 50.96,
+    "e": 51.44
+   },
+   {
+    "w": " lagi.",
+    "s": 51.44,
+    "e": 51.76
+   }
+  ]
+ },
+ {
+  "start": 51.76,
+  "end": 55.72,
+  "text": " Dapatkan rawatan aka hari ini dan pulihkan kesiatan gigi anda.",
+  "words": [
+   {
+    "w": " Dapatkan",
+    "s": 51.76,
+    "e": 52.6
+   },
+   {
+    "w": " rawatan",
+    "s": 52.6,
+    "e": 52.96
+   },
+   {
+    "w": " aka",
+    "s": 52.96,
+    "e": 53.22
+   },
+   {
+    "w": " hari",
+    "s": 53.22,
+    "e": 53.6
+   },
+   {
+    "w": " ini",
+    "s": 53.6,
+    "e": 53.88
+   },
+   {
+    "w": " dan",
+    "s": 53.88,
+    "e": 54.24
+   },
+   {
+    "w": " pulihkan",
+    "s": 54.24,
+    "e": 54.84
+   },
+   {
+    "w": " kesiatan",
+    "s": 54.84,
+    "e": 55.3
+   },
+   {
+    "w": " gigi",
+    "s": 55.3,
+    "e": 55.56
+   },
+   {
+    "w": " anda.",
+    "s": 55.56,
+    "e": 55.72
+   }
+  ]
+ }
+]
