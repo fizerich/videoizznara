@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {AbsoluteFill, Audio, continueRender, delayRender, interpolate, random, Sequence, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, continueRender, delayRender, Img, interpolate, random, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import '@fontsource/oswald/500.css';
 import '@fontsource/oswald/700.css';
 import '@fontsource/inter/400.css';
@@ -28,6 +28,8 @@ import {
   TitleScene,
 } from './scenes';
 
+const COVER_HOLD = 12;
+const COVER_END = 26;
 const FONTS = ['500 40px Oswald', '700 40px Oswald', '400 40px Inter', '600 40px Inter', '700 40px Inter'];
 
 // Latar: merah tegang → emas penuh harapan
@@ -159,6 +161,18 @@ export const RootCanalAd: React.FC = () => {
 
       <Captions f={f} top={inCta ? 1212 : CAPTION_TOP} />
       <Grain f={f} />
+
+      {/* Thumbnail sebagai bingkai pertama (cover TikTok/Facebook), kemudian zoom-out ke animasi */}
+      {f < COVER_END ? (
+        <AbsoluteFill
+          style={{
+            opacity: interpolate(f, [COVER_HOLD, COVER_END], [1, 0], cl),
+            transform: `scale(${1 + ez(f, COVER_HOLD, COVER_END) * 0.12})`,
+          }}
+        >
+          <Img src={staticFile('thumbnail.jpg')} style={{width: 1080, height: 1920}} />
+        </AbsoluteFill>
+      ) : null}
 
       <Audio src={staticFile('audio/vo-akar.wav')} volume={1} />
       <Audio src={staticFile('audio/v3-music.wav')} volume={0.9} />
