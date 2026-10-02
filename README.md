@@ -5,7 +5,19 @@ Dua video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izzna
 | Versi | Konsep | Tempoh | Audio | Fail |
 |---|---|---|---|---|
 | V1 | Gaya Vox — kertas cream, highlighter, rajah | 42s | Tiada | [`out/izznara-braces-9x16.mp4`](out/izznara-braces-9x16.mp4) |
+| V3 | **"Rawatan Akar"** — animasi keratan rentas gigi, disegerakkan dengan voiceover (BM), sari kata gaya TikTok | 58s | Voiceover + muzik + SFX | [`out/izznara-rawatan-akar-9x16.mp4`](out/izznara-rawatan-akar-9x16.mp4) |
 | V2 | **"Benang Emas"** — hitam premium, satu wayar braces emas mengalir sepanjang video, kamera satu-take, disegerakkan dengan beat | 47s | Muzik + SFX | [`out/izznara-braces-v2-9x16.mp4`](out/izznara-braces-v2-9x16.mp4) |
+
+## V3 — "Rawatan Akar" (TikTok / Facebook Reels)
+
+Berdasarkan voiceover `public/audio/vo-akar.wav`: sakit & ngilu → jangkitan bakteria ke pulpa → "cabut?" → rawatan akar 3 langkah (buang saraf, basmi kuman, tutup & tampal) → sakit hilang → CTA WhatsApp. Sari kata perkataan-demi-perkataan dijana oleh `audio/align_v3.py` (masa dari Whisper), kandungan penting diletakkan dalam zon selamat UI TikTok/Reels. Tiada before/after atau testimoni; ada penafian di akhir.
+
+```bash
+npm run audio:v3   # muzik (ditunduk di bawah suara) + SFX
+npm run render:v3  # -> out/izznara-rawatan-akar-9x16.mp4
+```
+
+Kod: `src/v3/` (`timeline.ts` = sempadan babak ikut suara, `Tooth.tsx` = gigi keratan rentas, `scenes.tsx` = babak).
 
 ## V2 — "Benang Emas"
 
