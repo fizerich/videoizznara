@@ -5,6 +5,7 @@ import {FPS, TOTAL} from './theme';
 import {TOTAL2} from './v2/kit';
 import {RootCanalAd} from './v3/RootCanalAd';
 import {TOTAL3} from './v3/timeline';
+import {FPS as HERMES_FPS, HermesExplainer, TOTAL_HERMES} from './hermes/HermesExplainer';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -31,6 +32,14 @@ export const RemotionRoot: React.FC = () => (
       fps={FPS}
       width={1080}
       height={1920}
+    />
+    <Composition
+      id="HermesExplainer"
+      component={HermesExplainer}
+      durationInFrames={TOTAL_HERMES}
+      fps={HERMES_FPS}
+      width={1920}
+      height={1080}
     />
   </>
 );

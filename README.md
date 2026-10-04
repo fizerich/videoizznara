@@ -65,3 +65,22 @@ npm run render     # V1 -> out/izznara-braces-9x16.mp4
 npm run render:v2  # V2 -> out/izznara-braces-v2-9x16.mp4
 npm run audio      # jana semula muzik & SFX (perlu numpy + scipy)
 ```
+
+---
+
+# Video Penerang: Hermes Agent (16:9, Bahasa Melayu)
+
+Ringkasan + video penerang untuk tutorial YouTube [“Hermes Agent – Full Tutorial & Setup Guide”](https://www.youtube.com/watch?v=DYdvJCxWd6M) (Metics Media).
+
+| Fail | Keterangan |
+|---|---|
+| [`docs/hermes-agent-ringkasan.md`](docs/hermes-agent-ringkasan.md) | Ringkasan bertulis langkah demi langkah (dengan cap masa video asal) |
+| [`out/hermes-agent-explainer-16x9.mp4`](out/hermes-agent-explainer-16x9.mp4) | Video penerang 1920×1080, ≈ 4m27s — suara BM (TTS), sari kata, muzik latar |
+
+```bash
+npm run audio:hermes   # suara + garis masa + muzik (pip install edge-tts numpy scipy)
+npm run render:hermes  # -> out/hermes-agent-explainer-16x9.mp4
+```
+
+Kod: `src/hermes/` · skrip naratif: `audio/hermes_script.json` (ubah ayat → jalankan `audio:hermes` → render semula; garis masa visual menyesuaikan diri secara automatik).
+Tangkapan skrin sebenar daripada video asal: hanya thumbnail & satu bingkai penerang (`public/hermes/`); selebihnya ilustrasi dilukis semula.

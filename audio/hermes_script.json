@@ -1,0 +1,75 @@
+{
+  "voice": "ms-MY-YasminNeural",
+  "rate": "+14%",
+  "scenes": [
+    {"id": "cover", "lines": [
+      {"say": "Hermes Agent: pekerja AI pertama anda, yang bekerja siang dan malam tanpa henti.", "cap": "Hermes Agent: pekerja AI pertama anda, yang bekerja siang dan malam tanpa henti."},
+      {"say": "Ringkasan tutorial setup lengkap daripada Matt di Metics Media. Kira-kira tiga puluh minit, tanpa coding.", "cap": "Ringkasan tutorial setup lengkap, Metics Media. Kira-kira 30 minit, tanpa coding."}
+    ]},
+    {"id": "what", "lines": [
+      {"say": "Hermes Agent ialah ejen AI sumber terbuka daripada Nous Research. Perisiannya percuma.", "cap": "Ejen AI sumber terbuka daripada Nous Research (lesen MIT). Perisiannya percuma."},
+      {"say": "Anda hanya membayar model AI, dan pelayan kecil tempat ia tinggal.", "cap": "Anda hanya bayar model AI dan pelayan kecil tempat ia tinggal."},
+      {"say": "Satu: ia berjalan berterusan, dan boleh memulakan perbualan dengan anda.", "cap": "1. Berjalan berterusan, dan boleh mulakan perbualan dengan anda."},
+      {"say": "Dua: ia mengingat keutamaan anda, di semua perbualan dan peranti.", "cap": "2. Mengingat keutamaan anda, di semua perbualan dan peranti."},
+      {"say": "Tiga: ia belajar sendiri, dengan menulis langkah kerja sebagai skill.", "cap": "3. Belajar sendiri: menulis langkah kerja sebagai “skill” yang boleh dipanggil semula."}
+    ]},
+    {"id": "roadmap", "lines": [
+      {"say": "Anggap anda sedang mengambil pekerja AI pertama.", "cap": "Anggap anda sedang mengambil pekerja AI pertama."},
+      {"say": "Beri ia tempat bekerja, otak, nombor telefon, latihan, dan jadual.", "cap": "Beri ia tempat bekerja, otak, nombor telefon, latihan dan jadual."}
+    ]},
+    {"id": "server", "lines": [
+      {"say": "Pertama, tempat kerja. Di laptop, ejen berhenti apabila laptop tidur.", "cap": "Langkah 1: tempat kerja. Di laptop, ejen berhenti apabila laptop tidur."},
+      {"say": "Jadi beri ia pelayan awan sendiri, Hostinger, bermula kira-kira enam dolar sebulan.", "cap": "Beri ia pelayan awan sendiri (Hostinger), bermula ±US$6 sebulan."},
+      {"say": "Lebih selamat juga: jika terkena prompt injection, hanya satu pelayan kosong yang terdedah.", "cap": "Lebih selamat: jika terkena prompt injection, hanya satu pelayan kosong yang terdedah."},
+      {"say": "Pilih pelan K V M 1, nyahtanda kotak Ready to Use A I, dan guna template Hermes satu klik.", "cap": "Pilih KVM 1, nyahtanda “Ready to Use AI”, guna template Hermes satu klik."},
+      {"say": "Simpan kata laluan admin dengan selamat, kemudian tekan Deploy.", "cap": "Simpan kata laluan admin dengan selamat, kemudian tekan Deploy."}
+    ]},
+    {"id": "brain", "lines": [
+      {"say": "Kedua, otak. Ejen perlukan akaun model AI. Video ini guna OpenRouter.", "cap": "Langkah 2: otak. Ejen perlukan akaun model AI; video ini guna OpenRouter."},
+      {"say": "Satu akaun untuk beratus model, bayar ikut guna. Mulakan dengan kredit lima dolar.", "cap": "Satu akaun, beratus model, bayar ikut guna. Mulakan dengan kredit US$5."},
+      {"say": "Salin kunci API, simpan selamat, dan tetapkan had belanja, contohnya sepuluh dolar seminggu.", "cap": "Salin kunci API, simpan selamat, dan tetapkan had belanja: contohnya US$10 seminggu."},
+      {"say": "Tampal kunci di Keys, kemudian pilih model utama: DeepSeek V4 Flash. Murah, laju, pandai guna alat.", "cap": "Tampal kunci di Keys, pilih model utama: DeepSeek-V4-Flash. Murah, laju, pandai guna alat."},
+      {"say": "Alternatif: Nous Portal, langganan tetap sekitar dua puluh dolar sebulan.", "cap": "Alternatif: Nous Portal, langganan tetap ±US$20 sebulan."}
+    ]},
+    {"id": "phone", "lines": [
+      {"say": "Ketiga, nombor telefon: bot Telegram untuk ejen anda.", "cap": "Langkah 3: nombor telefon. Satu bot Telegram untuk ejen anda."},
+      {"say": "Di Channels, tekan Create with Q R dan imbas dengan telefon. Kod tamat dalam tiga minit.", "cap": "Di Channels, “Create with QR”, imbas dengan telefon. Kod tamat dalam 3 minit."},
+      {"say": "Tekan Save and Restart, kemudian hantar mesej pertama anda.", "cap": "Tekan “Save and Restart”, kemudian hantar mesej pertama."},
+      {"say": "Tetapkan home channel supaya hasil kerja berjadual dihantar ke sini.", "cap": "Tetapkan home channel (/set home) untuk hasil kerja berjadual."},
+      {"say": "Hanya akaun anda dibenarkan. Ingatannya sama di pelayar, telefon, dan aplikasi.", "cap": "Hanya akaun anda dibenarkan. Ingatan yang sama di pelayar, telefon dan aplikasi."}
+    ]},
+    {"id": "desktop", "lines": [
+      {"say": "Pasang juga aplikasi desktop rasmi, dan sambungkan ke pelayan yang sama.", "cap": "Pasang aplikasi desktop rasmi, dan sambungkan ke pelayan yang sama."},
+      {"say": "Pilih provider kemudian. Di Settings, Gateway, pilih Remote dan tampal alamat pelayan.", "cap": "Pilih provider kemudian. Settings → Gateway → Remote, tampal alamat pelayan."},
+      {"say": "Tekan Command Shift H untuk bar terapung. Ada suara, dan wake word Hey Hermes.", "cap": "⌘ Shift H untuk bar terapung. Ada suara dan wake word “Hey Hermes”."}
+    ]},
+    {"id": "train", "lines": [
+      {"say": "Keempat, latihan. Betulkan ejen dengan bahasa biasa: ringkas, tiga perenggan, tiada bullet.", "cap": "Langkah 4: latihan. Betulkan dengan bahasa biasa: ringkas, 3 perenggan, tiada bullet."},
+      {"say": "Ia menyimpan pembetulan itu ke memori.", "cap": "Ia menyimpan pembetulan itu ke memori."},
+      {"say": "Dalam sesi baru sepenuhnya, gaya itu masih kekal. Itulah beza ejen dengan tetingkap chat.", "cap": "Dalam sesi baru sepenuhnya, gaya itu kekal. Itulah beza ejen dengan tetingkap chat."},
+      {"say": "Skill yang dipelajari sendiri berlabel Learned. Skills Hub menyediakan lebih banyak.", "cap": "Skill yang dipelajari sendiri berlabel “Learned”. Skills Hub ada lebih banyak."}
+    ]},
+    {"id": "cron", "lines": [
+      {"say": "Kelima, jadual. Inilah yang chatbot biasa tidak boleh buat.", "cap": "Langkah 5: jadual. Inilah yang chatbot biasa tak boleh buat."},
+      {"say": "Satu mesej: pantau YouTube untuk trend AI, bina skill sendiri, ingat apa yang telah ditunjukkan, dan jadualkan.", "cap": "Satu mesej: pantau YouTube untuk trend AI, bina skill sendiri, ingat apa yang telah ditunjukkan, jadualkan."},
+      {"say": "Ejen menulis skill, menetapkan jadual setiap empat jam, dan hanya menghantar mesej bila ada yang baru.", "cap": "Ejen tulis skill, jadual setiap 4 jam, dan hanya mesej bila ada yang baru."},
+      {"say": "Anda terangkan hasilnya sekali; ejen membina jentera di sebaliknya.", "cap": "Anda terangkan hasilnya sekali; ejen membina jentera di sebaliknya."}
+    ]},
+    {"id": "cost", "lines": [
+      {"say": "Berapa kosnya? Bil pelayan tetap. Bil model yang perlu dipantau.", "cap": "Berapa kosnya? Bil pelayan tetap. Bil model yang perlu dipantau."},
+      {"say": "Untuk membuat video ini: seratus lima permintaan, hanya tiga belas sen.", "cap": "Sepanjang video ini: 105 permintaan, hanya 13 sen."},
+      {"say": "Setiap mesej menghantar semula seluruh konteks, kira-kira tiga puluh lapan ribu token.", "cap": "Setiap mesej hantar semula seluruh konteks: ±38,000 token."},
+      {"say": "Tetapi tiga suku dibaca dari cache, yang jauh lebih murah.", "cap": "Tetapi tiga suku dibaca dari cache, yang jauh lebih murah."},
+      {"say": "Lima dolar cukup untuk kira-kira empat ribu mesej. Tukar model bila-bila dengan slash model.", "cap": "US$5 ≈ 4,000 mesej. Tukar model bila-bila dengan /model."}
+    ]},
+    {"id": "fix", "lines": [
+      {"say": "Bila sesuatu pelik, semak Logs. Bot tidak membalas? Restart Gateway.", "cap": "Bila sesuatu pelik, semak Logs. Bot tak balas? Restart Gateway."},
+      {"say": "Masih tidak? Restart aplikasi di Docker Manager. Kawalan penuh: hermes doctor.", "cap": "Masih tidak? Restart aplikasi di Docker Manager. Kawalan penuh: “hermes doctor”."},
+      {"say": "Seterusnya: sub-agent serentak, profil kerja dan peribadi, lebih banyak saluran, dan import dari OpenClaw.", "cap": "Seterusnya: sub-agent serentak, profil kerja & peribadi, lebih banyak saluran, import dari OpenClaw."}
+    ]},
+    {"id": "outro", "lines": [
+      {"say": "Kerja rumah: tanya ejen apa yang ia boleh ambil alih daripada tugas anda. Kosnya hanya beberapa sen.", "cap": "Kerja rumah: tanya ejen apa yang ia boleh ambil alih daripada tugas anda. Kos mencuba: beberapa sen."},
+      {"say": "Berdasarkan video Matt di Metics Media. Perisian AI sering dikemas kini, jadi ikut alirannya.", "cap": "Berdasarkan video Matt, Metics Media. Perisian AI sering dikemas kini — ikut alirannya."}
+    ]}
+  ]
+}

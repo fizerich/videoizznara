@@ -1,0 +1,315 @@
+{
+ "fps": 30,
+ "total": 7996,
+ "scenes": [
+  {
+   "id": "cover",
+   "start": 0,
+   "dur": 397,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 153,
+     "cap": "Hermes Agent: pekerja AI pertama anda, yang bekerja siang dan malam tanpa henti."
+    },
+    {
+     "start": 174,
+     "dur": 207,
+     "cap": "Ringkasan tutorial setup lengkap, Metics Media. Kira-kira 30 minit, tanpa coding."
+    }
+   ]
+  },
+  {
+   "id": "what",
+   "start": 397,
+   "dur": 776,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 175,
+     "cap": "Ejen AI sumber terbuka daripada Nous Research (lesen MIT). Perisiannya percuma."
+    },
+    {
+     "start": 196,
+     "dur": 118,
+     "cap": "Anda hanya bayar model AI dan pelayan kecil tempat ia tinggal."
+    },
+    {
+     "start": 323,
+     "dur": 142,
+     "cap": "1. Berjalan berterusan, dan boleh mulakan perbualan dengan anda."
+    },
+    {
+     "start": 475,
+     "dur": 139,
+     "cap": "2. Mengingat keutamaan anda, di semua perbualan dan peranti."
+    },
+    {
+     "start": 623,
+     "dur": 137,
+     "cap": "3. Belajar sendiri: menulis langkah kerja sebagai “skill” yang boleh dipanggil semula."
+    }
+   ]
+  },
+  {
+   "id": "roadmap",
+   "start": 1173,
+   "dur": 275,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 77,
+     "cap": "Anggap anda sedang mengambil pekerja AI pertama."
+    },
+    {
+     "start": 98,
+     "dur": 160,
+     "cap": "Beri ia tempat bekerja, otak, nombor telefon, latihan dan jadual."
+    }
+   ]
+  },
+  {
+   "id": "server",
+   "start": 1448,
+   "dur": 868,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 167,
+     "cap": "Langkah 1: tempat kerja. Di laptop, ejen berhenti apabila laptop tidur."
+    },
+    {
+     "start": 188,
+     "dur": 164,
+     "cap": "Beri ia pelayan awan sendiri (Hostinger), bermula ±US$6 sebulan."
+    },
+    {
+     "start": 362,
+     "dur": 170,
+     "cap": "Lebih selamat: jika terkena prompt injection, hanya satu pelayan kosong yang terdedah."
+    },
+    {
+     "start": 540,
+     "dur": 187,
+     "cap": "Pilih KVM 1, nyahtanda “Ready to Use AI”, guna template Hermes satu klik."
+    },
+    {
+     "start": 736,
+     "dur": 115,
+     "cap": "Simpan kata laluan admin dengan selamat, kemudian tekan Deploy."
+    }
+   ]
+  },
+  {
+   "id": "brain",
+   "start": 2316,
+   "dur": 1015,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 205,
+     "cap": "Langkah 2: otak. Ejen perlukan akaun model AI; video ini guna OpenRouter."
+    },
+    {
+     "start": 226,
+     "dur": 179,
+     "cap": "Satu akaun, beratus model, bayar ikut guna. Mulakan dengan kredit US$5."
+    },
+    {
+     "start": 413,
+     "dur": 184,
+     "cap": "Salin kunci API, simpan selamat, dan tetapkan had belanja: contohnya US$10 seminggu."
+    },
+    {
+     "start": 606,
+     "dur": 245,
+     "cap": "Tampal kunci di Keys, pilih model utama: DeepSeek-V4-Flash. Murah, laju, pandai guna alat."
+    },
+    {
+     "start": 859,
+     "dur": 140,
+     "cap": "Alternatif: Nous Portal, langganan tetap ±US$20 sebulan."
+    }
+   ]
+  },
+  {
+   "id": "phone",
+   "start": 3331,
+   "dur": 781,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 115,
+     "cap": "Langkah 3: nombor telefon. Satu bot Telegram untuk ejen anda."
+    },
+    {
+     "start": 136,
+     "dur": 189,
+     "cap": "Di Channels, “Create with QR”, imbas dengan telefon. Kod tamat dalam 3 minit."
+    },
+    {
+     "start": 334,
+     "dur": 109,
+     "cap": "Tekan “Save and Restart”, kemudian hantar mesej pertama."
+    },
+    {
+     "start": 453,
+     "dur": 108,
+     "cap": "Tetapkan home channel (/set home) untuk hasil kerja berjadual."
+    },
+    {
+     "start": 569,
+     "dur": 195,
+     "cap": "Hanya akaun anda dibenarkan. Ingatan yang sama di pelayar, telefon dan aplikasi."
+    }
+   ]
+  },
+  {
+   "id": "desktop",
+   "start": 4112,
+   "dur": 554,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 135,
+     "cap": "Pasang aplikasi desktop rasmi, dan sambungkan ke pelayan yang sama."
+    },
+    {
+     "start": 156,
+     "dur": 200,
+     "cap": "Pilih provider kemudian. Settings → Gateway → Remote, tampal alamat pelayan."
+    },
+    {
+     "start": 365,
+     "dur": 173,
+     "cap": "⌘ Shift H untuk bar terapung. Ada suara dan wake word “Hey Hermes”."
+    }
+   ]
+  },
+  {
+   "id": "train",
+   "start": 4666,
+   "dur": 702,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 225,
+     "cap": "Langkah 4: latihan. Betulkan dengan bahasa biasa: ringkas, 3 perenggan, tiada bullet."
+    },
+    {
+     "start": 246,
+     "dur": 69,
+     "cap": "Ia menyimpan pembetulan itu ke memori."
+    },
+    {
+     "start": 325,
+     "dur": 186,
+     "cap": "Dalam sesi baru sepenuhnya, gaya itu kekal. Itulah beza ejen dengan tetingkap chat."
+    },
+    {
+     "start": 520,
+     "dur": 166,
+     "cap": "Skill yang dipelajari sendiri berlabel “Learned”. Skills Hub ada lebih banyak."
+    }
+   ]
+  },
+  {
+   "id": "cron",
+   "start": 5368,
+   "dur": 719,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 139,
+     "cap": "Langkah 5: jadual. Inilah yang chatbot biasa tak boleh buat."
+    },
+    {
+     "start": 160,
+     "dur": 223,
+     "cap": "Satu mesej: pantau YouTube untuk trend AI, bina skill sendiri, ingat apa yang telah ditunjukkan, jadualkan."
+    },
+    {
+     "start": 392,
+     "dur": 179,
+     "cap": "Ejen tulis skill, jadual setiap 4 jam, dan hanya mesej bila ada yang baru."
+    },
+    {
+     "start": 580,
+     "dur": 122,
+     "cap": "Anda terangkan hasilnya sekali; ejen membina jentera di sebaliknya."
+    }
+   ]
+  },
+  {
+   "id": "cost",
+   "start": 6087,
+   "dur": 801,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 169,
+     "cap": "Berapa kosnya? Bil pelayan tetap. Bil model yang perlu dipantau."
+    },
+    {
+     "start": 190,
+     "dur": 136,
+     "cap": "Sepanjang video ini: 105 permintaan, hanya 13 sen."
+    },
+    {
+     "start": 335,
+     "dur": 149,
+     "cap": "Setiap mesej hantar semula seluruh konteks: ±38,000 token."
+    },
+    {
+     "start": 493,
+     "dur": 105,
+     "cap": "Tetapi tiga suku dibaca dari cache, yang jauh lebih murah."
+    },
+    {
+     "start": 607,
+     "dur": 177,
+     "cap": "US$5 ≈ 4,000 mesej. Tukar model bila-bila dengan /model."
+    }
+   ]
+  },
+  {
+   "id": "fix",
+   "start": 6888,
+   "dur": 663,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 194,
+     "cap": "Bila sesuatu pelik, semak Logs. Bot tak balas? Restart Gateway."
+    },
+    {
+     "start": 215,
+     "dur": 209,
+     "cap": "Masih tidak? Restart aplikasi di Docker Manager. Kawalan penuh: “hermes doctor”."
+    },
+    {
+     "start": 432,
+     "dur": 214,
+     "cap": "Seterusnya: sub-agent serentak, profil kerja & peribadi, lebih banyak saluran, import dari OpenClaw."
+    }
+   ]
+  },
+  {
+   "id": "outro",
+   "start": 7551,
+   "dur": 445,
+   "lines": [
+    {
+     "start": 12,
+     "dur": 205,
+     "cap": "Kerja rumah: tanya ejen apa yang ia boleh ambil alih daripada tugas anda. Kos mencuba: beberapa sen."
+    },
+    {
+     "start": 226,
+     "dur": 202,
+     "cap": "Berdasarkan video Matt, Metics Media. Perisian AI sering dikemas kini — ikut alirannya."
+    }
+   ]
+  }
+ ]
+}
