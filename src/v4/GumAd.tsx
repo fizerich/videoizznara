@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {AbsoluteFill, Audio, continueRender, delayRender, Sequence, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, continueRender, delayRender, Img, interpolate, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import '@fontsource/oswald/500.css';
 import '@fontsource/oswald/700.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/700.css';
-import {Backdrop, ez, Grain} from '../v2/kit';
+import {cl, ez, Grain} from '../v2/kit';
 import {Logo} from '../components/ui';
 import {CAPTION_TOP, Captions} from '../v3/Captions';
 import {Teeth} from './Teeth';
 import {inflame, recession, T, teethTf, win} from './timeline';
 import {PAGES} from './words';
+import {CAPTION, LightBackdrop} from './theme';
 import {
   CauseFx,
   CauseScene,
@@ -29,6 +30,8 @@ import {
   SensScene,
 } from './scenes';
 
+const COVER_HOLD = 12;
+const COVER_END = 26;
 const FONTS = ['500 40px Oswald', '700 40px Oswald', '400 40px Inter', '600 40px Inter', '700 40px Inter'];
 
 const SFX: {src: string; at: number; vol: number}[] = [
@@ -74,8 +77,8 @@ export const GumAd: React.FC = () => {
   const inCta = f >= T.cta;
 
   return (
-    <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
-      <Backdrop f={f} camY={f * 0.8} />
+    <AbsoluteFill style={{background: '#fff', overflow: 'hidden'}}>
+      <LightBackdrop f={f} />
       <MirrorBack f={f} />
       <Teeth
         x={tf.x}
@@ -104,11 +107,25 @@ export const GumAd: React.FC = () => {
 
       {/* logo kecil */}
       <div style={{position: 'absolute', top: 128, left: 0, right: 0, textAlign: 'center', opacity: ez(f, 10, 28) * (1 - ez(f, T.cta - 6, T.cta + 2)) * 0.9}}>
-        <Logo white height={54} />
+        <Logo height={54} />
       </div>
 
-      <Captions f={f} pages={PAGES} top={inCta ? 1212 : CAPTION_TOP} />
-      <Grain f={f} />
+      <Captions f={f} pages={PAGES} look={CAPTION} top={inCta ? 1212 : CAPTION_TOP} />
+      <div style={{position: 'absolute', inset: 0, opacity: 0.45}}>
+        <Grain f={f} />
+      </div>
+
+      {/* Thumbnail sebagai bingkai pertama (cover TikTok/Facebook), kemudian zoom-out ke animasi */}
+      {f < COVER_END ? (
+        <AbsoluteFill
+          style={{
+            opacity: interpolate(f, [COVER_HOLD, COVER_END], [1, 0], cl),
+            transform: `scale(${1 + ez(f, COVER_HOLD, COVER_END) * 0.12})`,
+          }}
+        >
+          <Img src={staticFile('thumbnail-gusi.jpg')} style={{width: 1080, height: 1920, objectFit: 'cover'}} />
+        </AbsoluteFill>
+      ) : null}
 
       <Audio src={staticFile('audio/vo-gusi.wav')} volume={1} />
       <Audio src={staticFile('audio/v4-music.wav')} volume={0.9} />

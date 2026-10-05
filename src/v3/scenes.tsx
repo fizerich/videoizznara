@@ -12,13 +12,18 @@ const BLUE = '#bfe8ff';
 const RED = '#e0405e';
 
 // ---------- teks "hentak" ----------
-export const Slam: React.FC<{f: number; at: number; size: number; color?: string; children: React.ReactNode; out?: number}> = ({
+// `look` membolehkan tema lain (cth. V4 cerah: garis luar putih, gema crimson)
+export type SlamLook = {echo: string; shadow: string; outline?: string};
+const DARK_LOOK: SlamLook = {echo: D.gold, shadow: '0 10px 40px rgba(0,0,0,0.7)'};
+
+export const Slam: React.FC<{f: number; at: number; size: number; color?: string; children: React.ReactNode; out?: number; look?: SlamLook}> = ({
   f,
   at,
   size,
   color = D.cream,
   children,
   out = Infinity,
+  look = DARK_LOOK,
 }) => {
   if (f < at) return null;
   const s = sp(f, at, 12, 0.6);
@@ -41,7 +46,7 @@ export const Slam: React.FC<{f: number; at: number; size: number; color?: string
           position: 'absolute',
           inset: 0,
           color: 'transparent',
-          WebkitTextStroke: `3px ${D.gold}`,
+          WebkitTextStroke: `3px ${look.echo}`,
           transform: `scale(${1 + echo * 0.35})`,
           opacity: (1 - echo) * 0.7,
         }}
@@ -55,7 +60,8 @@ export const Slam: React.FC<{f: number; at: number; size: number; color?: string
           transform: `scale(${1.7 - s * 0.7})`,
           filter: `blur(${(1 - Math.min(s, 1)) * 14}px)`,
           opacity: Math.min(1, s * 1.5),
-          textShadow: '0 10px 40px rgba(0,0,0,0.7)',
+          textShadow: look.shadow,
+          ...(look.outline ? {WebkitTextStroke: look.outline, paintOrder: 'stroke fill'} : {}),
         }}
       >
         {children}

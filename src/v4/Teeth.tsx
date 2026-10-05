@@ -62,11 +62,6 @@ export const Teeth: React.FC<TeethProps> = ({x, y, scale, recede, inflame, shake
           <stop offset="45%" stopColor={gumLow} />
           <stop offset="100%" stopColor={gumLow} stopOpacity={0} />
         </linearGradient>
-        <linearGradient id="goldFill" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#fff0c9" />
-          <stop offset="50%" stopColor="#e8c785" />
-          <stop offset="100%" stopColor="#b98d3f" />
-        </linearGradient>
         {/* pudar di tepi kiri/kanan supaya barisan gigi tiada bucu keras bila dikecilkan */}
         <linearGradient id="v4hfade" gradientUnits="userSpaceOnUse" x1="-720" y1="0" x2="720" y2="0">
           <stop offset="0%" stopColor="#000" />
@@ -85,12 +80,12 @@ export const Teeth: React.FC<TeethProps> = ({x, y, scale, recede, inflame, shake
         <g mask="url(#v4fade)">
         {TEETH.map((t, i) => (
           <g key={i} transform={`translate(${t.x} 0) scale(${t.s})`}>
-            <path d={TOOTH} fill="url(#v4tooth)" stroke="#fff6e4" strokeWidth={5} strokeLinejoin="round" />
+            <path d={TOOTH} fill="url(#v4tooth)" stroke="#dcc9bd" strokeWidth={5} strokeLinejoin="round" />
             <path d="M -50 -225 C -62 -160 -56 -90 -44 -30" fill="none" stroke="#fff" strokeWidth={13} strokeLinecap="round" opacity={0.6} />
           </g>
         ))}
         {cej > 0 ? (
-          <path d="M -660 0 H 660" stroke="#fff0c9" strokeWidth={5} strokeDasharray="18 14" opacity={cej} />
+          <path d="M -660 0 H 660" stroke="#8f0b22" strokeWidth={5} strokeDasharray="18 14" opacity={cej} />
         ) : null}
         {inflame > 0.3 ? <path d={gum.line} fill="none" stroke="#ff4d6d" strokeWidth={30} opacity={(inflame - 0.3) * 0.6} filter="url(#v4glow)" /> : null}
         <path d={gum.fill} fill="url(#v4gum)" />

@@ -1,15 +1,15 @@
 import React from 'react';
 import {interpolate} from 'remotion';
-import {B, BEAT, cl, D, ez, H, sp, Stage} from '../v2/kit';
+import {B, BEAT, cl, ez, H, sp, Stage} from '../v2/kit';
 import {Logo} from '../components/ui';
-import {Kicker} from '../v3/Captions';
 import {Col, Slam} from '../v3/scenes';
-import {Bolt, boltPath, Check, IceGlass, Sparkle} from '../v3/props';
+import {Bolt, boltPath, IceGlass, Sparkle} from '../v3/props';
 import {Germ, marginY, Toothbrush} from './Teeth';
 import {recession, T, teethTf, toScreen, win} from './timeline';
+import {CardStyle, CheckMark, HEAD, Kicker, L, SLAM} from './theme';
 
-const RED = '#e0405e';
-const BLUE = '#bfe8ff';
+const RED = L.crimsonHi;
+const BLUE = L.blue;
 
 // ---------- ikon punca (dipakai di kad & babak "ikut punca") ----------
 export const BrushIcon: React.FC<{f: number}> = ({f}) => (
@@ -39,15 +39,15 @@ export const ClenchIcon: React.FC<{f: number}> = ({f}) => {
           <rect x={-40} y={-40} width={80} height={80} fill="#fff" />
           <circle cx={14} cy={-8} r={26} fill="#000" />
         </mask>
-        <circle r={30} fill={D.gold} mask="url(#v4moon)" />
+        <circle r={30} fill={L.crimsonHi} mask="url(#v4moon)" />
       </g>
-      <text x={34} y={-50} fontFamily={H} fontWeight={700} fontSize={40} fill={D.cream} opacity={0.8}>
+      <text x={34} y={-50} fontFamily={H} fontWeight={700} fontSize={40} fill={L.ink} opacity={0.8}>
         Zz
       </text>
       {/* gigi atas & bawah dikacip */}
       <g transform={`translate(${j} 28)`}>
-        <rect x={-70} y={-34} width={140} height={30} rx={8} fill={D.cream} />
-        <rect x={-70} y={4} width={140} height={30} rx={8} fill={D.cream} />
+        <rect x={-70} y={-34} width={140} height={30} rx={8} fill="#fff" stroke="#d8c6bb" strokeWidth={3} />
+        <rect x={-70} y={4} width={140} height={30} rx={8} fill="#fff" stroke="#d8c6bb" strokeWidth={3} />
         {[-35, 0, 35].map((x) => (
           <path key={x} d={`M ${x} -34 V 34`} stroke="#c9b99c" strokeWidth={4} />
         ))}
@@ -76,9 +76,9 @@ export const MirrorBack: React.FC<{f: number}> = ({f}) => {
         borderRadius: 60,
         opacity: o,
         overflow: 'hidden',
-        border: '16px solid #cfc7c2',
-        boxShadow: '0 0 0 4px #7d7470, 0 30px 80px rgba(0,0,0,0.6), inset 0 0 120px rgba(255,255,255,0.08)',
-        background: 'linear-gradient(160deg, rgba(220,230,240,0.16), rgba(120,130,150,0.06) 60%, rgba(220,230,240,0.12))',
+        border: '16px solid #ffffff',
+        boxShadow: '0 0 0 4px #c9bfbb, 0 30px 70px rgba(143,11,34,0.18), inset 0 0 120px rgba(255,255,255,0.5)',
+        background: 'linear-gradient(160deg, #e9eef3, #d6dde5 60%, #edf1f5)',
       }}
     >
       <div
@@ -89,7 +89,7 @@ export const MirrorBack: React.FC<{f: number}> = ({f}) => {
           width: 120,
           height: 1300,
           transform: 'rotate(24deg)',
-          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent)',
+          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent)',
         }}
       />
     </div>
@@ -105,13 +105,13 @@ export const MirrorScene: React.FC<{f: number}> = ({f}) => {
   return (
     <div style={{opacity: o}}>
       <Col top={232} gap={10}>
-        <div style={{opacity: Math.min(1, q) * (1 - ez(f, T.notGrow - 6, T.notGrow)), transform: `scale(${0.8 + 0.2 * Math.min(1, q)})`, fontFamily: H, fontWeight: 700, fontSize: 96, color: D.cream, textTransform: 'uppercase', letterSpacing: 2, textShadow: '0 10px 40px rgba(0,0,0,0.7)'}}>
+        <div style={{opacity: Math.min(1, q) * (1 - ez(f, T.notGrow - 6, T.notGrow)), transform: `scale(${0.8 + 0.2 * Math.min(1, q)})`, ...HEAD, fontSize: 104, letterSpacing: 2}}>
           Gigi makin panjang?
         </div>
       </Col>
       {no ? (
         <div style={{position: 'absolute', top: 232, left: 0, right: 0, textAlign: 'center'}}>
-          <Slam f={f} at={T.notGrow} size={96} color="#ff7a93">
+          <Slam f={f} at={T.notGrow} size={100} color={L.crimson} look={SLAM}>
             Gigi tak membesar
           </Slam>
         </div>
@@ -128,9 +128,9 @@ export const Ruler: React.FC<{f: number}> = ({f}) => {
   const x = -480;
   return (
     <g opacity={o}>
-      <path d={`M ${x} -258 V ${bot}`} stroke={D.gold} strokeWidth={8} strokeLinecap="round" />
-      <path d={`M ${x - 26} -258 H ${x + 26} M ${x - 26} ${bot} H ${x + 26}`} stroke={D.gold} strokeWidth={8} strokeLinecap="round" />
-      <path d={`M ${x - 18} ${bot - 22} L ${x} ${bot} L ${x + 18} ${bot - 22}`} fill="none" stroke={D.goldHi} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" />
+      <path d={`M ${x} -258 V ${bot}`} stroke={L.crimson} strokeWidth={8} strokeLinecap="round" />
+      <path d={`M ${x - 26} -258 H ${x + 26} M ${x - 26} ${bot} H ${x + 26}`} stroke={L.crimson} strokeWidth={8} strokeLinecap="round" />
+      <path d={`M ${x - 18} ${bot - 22} L ${x} ${bot} L ${x + 18} ${bot - 22}`} fill="none" stroke={L.crimsonHi} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" />
     </g>
   );
 };
@@ -145,7 +145,7 @@ export const RecedeScene: React.FC<{f: number}> = ({f}) => {
     <div style={{opacity: o}}>
       <Col top={250} gap={14}>
         <Kicker text="SEBALIKNYA" o={sp(f, T.recede + 4, 14)} />
-        <Slam f={f} at={T.shrink} size={124} color={D.gold}>
+        <Slam f={f} at={T.shrink} size={124} color={L.crimson} look={SLAM}>
           Gusi menyusut
         </Slam>
       </Col>
@@ -153,13 +153,13 @@ export const RecedeScene: React.FC<{f: number}> = ({f}) => {
       <Stage>
         <path
           d={`M ${root.x + 40} ${root.y} L ${root.x + 150} ${root.y + 190}`}
-          stroke={D.goldHi}
+          stroke={L.crimson}
           strokeWidth={6}
           strokeLinecap="round"
           strokeDasharray="230"
           strokeDashoffset={230 * (1 - Math.min(1, lbl))}
         />
-        <circle cx={root.x + 30} cy={root.y} r={14 * Math.min(1, lbl)} fill={D.goldHi} />
+        <circle cx={root.x + 30} cy={root.y} r={14 * Math.min(1, lbl)} fill={L.crimson} />
       </Stage>
       <div
         style={{
@@ -170,8 +170,9 @@ export const RecedeScene: React.FC<{f: number}> = ({f}) => {
           fontWeight: 700,
           fontSize: 54,
           letterSpacing: 3,
-          color: D.bg,
-          background: D.goldHi,
+          color: '#fff',
+          background: L.crimson,
+          boxShadow: '0 12px 30px rgba(143,11,34,0.3)',
           padding: '6px 22px',
           borderRadius: 12,
           opacity: Math.min(1, lbl),
@@ -198,7 +199,7 @@ export const DownArrows: React.FC<{f: number}> = ({f}) => {
               key={`${i}${k}`}
               d={`M ${x - 26} ${80 + p * 70} l 26 22 l 26 -22`}
               fill="none"
-              stroke="#fff"
+              stroke={L.crimson}
               strokeWidth={9}
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -228,21 +229,21 @@ const CauseCard: React.FC<{f: number; i: number; active: boolean; small?: boolea
         width: 300 * s,
         height: 360 * s,
         borderRadius: 32 * s,
-        background: D.card,
-        border: `${active ? 5 : 3}px solid ${active ? D.gold : 'rgba(232,199,133,0.35)'}`,
-        boxShadow: active ? '0 0 40px rgba(232,199,133,0.45)' : '0 20px 50px rgba(0,0,0,0.5)',
+        ...CardStyle,
+        border: `${active ? 5 : 3}px solid ${active ? L.crimson : L.line}`,
+        boxShadow: active ? '0 0 40px rgba(196,30,58,0.35)' : CardStyle.boxShadow,
         transform: `scale(${active ? 1.06 : 1})`,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
       }}
     >
-      <div style={{fontFamily: H, fontWeight: 700, fontSize: 40 * s, color: D.gold, marginTop: 14 * s}}>{i + 1}</div>
+      <div style={{fontFamily: H, fontWeight: 700, fontSize: 40 * s, color: L.crimsonHi, marginTop: 14 * s}}>{i + 1}</div>
       <svg width={260 * s} height={170 * s} viewBox="-130 -85 260 170" style={{overflow: 'visible'}}>
         <c.Icon f={active || small ? f : 0} />
       </svg>
       {small ? null : (
-        <div style={{fontFamily: H, fontWeight: 700, fontSize: 42, lineHeight: 1.1, color: active ? D.cream : D.dim, textTransform: 'uppercase', textAlign: 'center', marginTop: 18}}>
+        <div style={{fontFamily: H, fontWeight: 700, fontSize: 42, lineHeight: 1.1, color: active ? L.crimson : L.dim, textTransform: 'uppercase', textAlign: 'center', marginTop: 18}}>
           {c.label[0]}
           <br />
           {c.label[1]}
@@ -284,7 +285,7 @@ export const CauseFx: React.FC<{f: number}> = ({f}) => {
       {brush > 0 ? (
         <g opacity={brush}>
           {[0, 1, 2, 3].map((i) => (
-            <path key={i} d={`M ${-260 + i * 170} ${marginY(r) + 10} q 30 -16 60 0`} stroke="#fff" strokeWidth={6} fill="none" opacity={Math.abs(Math.sin(f / 2 + i))} />
+            <path key={i} d={`M ${-260 + i * 170} ${marginY(r) + 10} q 30 -16 60 0`} stroke={L.crimson} strokeWidth={6} fill="none" opacity={Math.abs(Math.sin(f / 2 + i))} />
           ))}
           <g transform={`translate(${Math.sin(f / 1.5) * 150} ${marginY(r) - 64}) rotate(180)`}>
             <Toothbrush s={1.15} />
@@ -314,7 +315,7 @@ export const SensScene: React.FC<{f: number}> = ({f}) => {
         <Kicker text="TANDA LAIN" o={sp(f, T.sens + 50, 14)} />
       </Col>
       <div style={{position: 'absolute', top: 330, left: 70}}>
-        <Slam f={f} at={T.ngilu} size={150} color={BLUE}>
+        <Slam f={f} at={T.ngilu} size={150} color={BLUE} look={SLAM}>
           Ngilu!
         </Slam>
       </div>
@@ -323,6 +324,7 @@ export const SensScene: React.FC<{f: number}> = ({f}) => {
           <Bolt d={boltPath(g.x - 60, g.y + 60, root.x + 40, root.y, seed, 9, 30)} color={BLUE} o={Math.min(1, glassIn) * (seed % 3 === 0 ? 1 : 0.55)} />
         ) : null}
         <g transform={`translate(${g.x} ${g.y}) rotate(${(1 - Math.min(glassIn, 1)) * 20})`} opacity={Math.min(1, glassIn)}>
+          <circle r={150} fill={L.paper} stroke={L.crimson} strokeWidth={10} />
           <IceGlass f={f} s={0.9} />
         </g>
       </Stage>
@@ -344,7 +346,7 @@ export const NgiluFx: React.FC<{f: number}> = ({f}) => {
             <Bolt
               key={`${i}${side}`}
               d={boltPath(x + side * 60, 70, x + side * 150, -10 + i * 10, seed + i * 3 + side, 5, 16)}
-              color={i === 1 ? BLUE : '#ffffff'}
+              color={i === 1 ? BLUE : '#7cc4f0'}
               o={on}
               w={6}
             />
@@ -364,7 +366,7 @@ export const FillScene: React.FC<{f: number}> = ({f}) => {
     <div style={{opacity: o}}>
       <Col top={240} gap={12}>
         <Kicker text="JANGAN TERUS FIKIR" o={sp(f, T.fill + 72, 14)} />
-        <Slam f={f} at={T.tampal - 2} size={130}>
+        <Slam f={f} at={T.tampal - 2} size={130} color={L.crimson} look={SLAM}>
           Nak tampal je?
         </Slam>
       </Col>
@@ -390,7 +392,7 @@ export const PatchFx: React.FC<{f: number}> = ({f}) => {
       {[-190, 0, 190].map((x, i) => {
         const p = ez(f, T.tampal - 4 + i * 4, T.tampal + 8 + i * 4);
         const h = marginY(r, i === 1 ? 1 : 0.85) - 4;
-        return <rect key={i} x={x - 52} y={0} width={104} height={h * p} rx={22} fill="#d9d2c6" stroke="#fff" strokeWidth={4} opacity={0.95} />;
+        return <rect key={i} x={x - 52} y={0} width={104} height={h * p} rx={22} fill="#e4ddd3" stroke="#b9ab9c" strokeWidth={4} opacity={0.95} />;
       })}
     </g>
   );
@@ -404,7 +406,7 @@ export const CauseScene: React.FC<{f: number}> = ({f}) => {
     <div style={{opacity: o}}>
       <Col top={700} gap={10}>
         <Kicker text="RAWATAN BERGANTUNG PADA" o={sp(f, T.cause + 10, 14)} />
-        <Slam f={f} at={T.punca} size={176} color={D.gold}>
+        <Slam f={f} at={T.punca} size={176} color={L.crimson} look={SLAM}>
           Punca
         </Slam>
       </Col>
@@ -432,7 +434,7 @@ export const DoctorScene: React.FC<{f: number}> = ({f}) => {
     <div style={{opacity: o}}>
       <Col top={232} gap={12}>
         <Kicker text="JALAN PALING SELAMAT" o={sp(f, 966, 14)} />
-        <Slam f={f} at={T.check} size={104} color={D.gold}>
+        <Slam f={f} at={T.check} size={104} color={L.crimson} look={SLAM}>
           Jumpa doktor gigi
         </Slam>
       </Col>
@@ -444,9 +446,7 @@ export const DoctorScene: React.FC<{f: number}> = ({f}) => {
           width: 700,
           padding: '26px 40px',
           borderRadius: 30,
-          background: D.card,
-          border: `3px solid rgba(232,199,133,0.5)`,
-          boxShadow: '0 20px 60px rgba(0,0,0,0.6)',
+          ...CardStyle,
           opacity: Math.min(1, sp(f, 1003, 14) * 1.4),
           transform: `translateY(${(1 - Math.min(1, sp(f, 1003, 14))) * 60}px)`,
         }}
@@ -457,9 +457,9 @@ export const DoctorScene: React.FC<{f: number}> = ({f}) => {
           return (
             <div key={c} style={{display: 'flex', alignItems: 'center', gap: 24, height: 62}}>
               <svg width={52} height={52} viewBox="-70 -70 140 140" style={{opacity: Math.min(1, e), transform: `scale(${Math.min(1.1, e)})`}}>
-                <Check />
+                <CheckMark />
               </svg>
-              <div style={{fontFamily: B, fontWeight: 700, fontSize: 40, color: f >= at ? D.cream : D.dim}}>{c}</div>
+              <div style={{fontFamily: B, fontWeight: 700, fontSize: 40, color: f >= at ? L.ink : L.dim}}>{c}</div>
             </div>
           );
         })}
@@ -475,9 +475,9 @@ export const LensFx: React.FC<{f: number}> = ({f}) => {
   const x = interpolate(f, [T.check - 10, T.cta], [-320, 320], cl);
   return (
     <g opacity={o} transform={`translate(${x} ${80 + Math.sin(f / 9) * 20})`}>
-      <circle r={120} fill="rgba(191,232,255,0.16)" stroke={D.gold} strokeWidth={16} />
+      <circle r={120} fill="rgba(255,255,255,0.35)" stroke={L.crimson} strokeWidth={16} />
       <path d="M -70 -60 A 92 92 0 0 1 10 -100" fill="none" stroke="#fff" strokeWidth={9} strokeLinecap="round" opacity={0.7} />
-      <path d="M 86 86 L 190 190" stroke={D.gold} strokeWidth={34} strokeLinecap="round" />
+      <path d="M 86 86 L 190 190" stroke={L.crimson} strokeWidth={34} strokeLinecap="round" />
     </g>
   );
 };
@@ -497,13 +497,13 @@ export const CtaScene: React.FC<{f: number}> = ({f}) => {
   return (
     <div style={{opacity: o}}>
       <div style={{position: 'absolute', top: 170, left: 0, right: 0, textAlign: 'center', opacity: logo, transform: `scale(${0.85 + logo * 0.15})`}}>
-        <Logo white height={118} />
+        <Logo height={118} />
       </div>
       <Col top={655} gap={0}>
-        <div style={{opacity: head, transform: `translateY(${(1 - head) * 40}px)`, fontFamily: H, fontWeight: 700, fontSize: 124, lineHeight: 1.02, color: D.gold, textTransform: 'uppercase'}}>
+        <div style={{opacity: head, transform: `translateY(${(1 - head) * 40}px)`, ...HEAD, fontSize: 124, lineHeight: 1.04}}>
           Jaga gusi anda
         </div>
-        <div style={{opacity: head2, transform: `translateY(${(1 - head2) * 40}px)`, fontFamily: H, fontWeight: 700, fontSize: 132, lineHeight: 1.02, color: D.cream, textTransform: 'uppercase'}}>
+        <div style={{opacity: head2, transform: `translateY(${(1 - head2) * 40}px)`, ...HEAD, fontSize: 132, lineHeight: 1.04, color: L.ink}}>
           Dari sekarang
         </div>
       </Col>
@@ -513,40 +513,40 @@ export const CtaScene: React.FC<{f: number}> = ({f}) => {
             display: 'flex',
             alignItems: 'center',
             gap: 22,
-            background: `linear-gradient(180deg, ${D.goldHi}, ${D.gold})`,
-            color: D.bg,
+            background: `linear-gradient(180deg, ${L.crimsonHi}, ${L.crimson})`,
+            color: '#fff',
             borderRadius: 999,
             padding: '24px 50px',
             fontFamily: H,
             fontWeight: 700,
             fontSize: 66,
-            boxShadow: `0 0 ${50 * (pulse - 1) * 25}px rgba(232,199,133,0.8), 0 20px 50px rgba(0,0,0,0.5)`,
+            boxShadow: `0 0 ${50 * (pulse - 1) * 25}px rgba(196,30,58,0.6), 0 20px 50px rgba(143,11,34,0.3)`,
             transform: `scale(${Math.min(1, btn) * pulse})`,
             opacity: Math.min(1, btn * 1.5),
           }}
         >
           <svg width="62" height="62" viewBox="0 0 64 64">
-            <path d="M32 6 C17 6 6 17 6 31 c0 5 1.4 9.6 3.9 13.5 L6 58 l14-3.7 C23.6 56.6 27.7 57.8 32 57.8 C47 57.8 58 46.4 58 32 S47 6 32 6 Z" fill={D.bg} />
-            <path d="M24 20c-1-2-2-2-3-2s-2 0-3 1-3 3-3 7 3 8 3.5 8.5S24 44 32 47c6.5 2.5 8 2 9.5 1.8s4.5-2 5-3.8.5-3.4.4-3.8-.6-.6-1.4-1l-5-2.4c-.7-.3-1.2-.4-1.7.4s-2 2.4-2.4 2.9-.9.6-1.7.2-3.3-1.2-6.2-3.8c-2.3-2-3.9-4.6-4.3-5.4s0-1.2.3-1.6l1.2-1.4c.4-.5.5-.8.8-1.4s.1-1-.1-1.4Z" fill={D.gold} />
+            <path d="M32 6 C17 6 6 17 6 31 c0 5 1.4 9.6 3.9 13.5 L6 58 l14-3.7 C23.6 56.6 27.7 57.8 32 57.8 C47 57.8 58 46.4 58 32 S47 6 32 6 Z" fill="#fff" />
+            <path d="M24 20c-1-2-2-2-3-2s-2 0-3 1-3 3-3 7 3 8 3.5 8.5S24 44 32 47c6.5 2.5 8 2 9.5 1.8s4.5-2 5-3.8.5-3.4.4-3.8-.6-.6-1.4-1l-5-2.4c-.7-.3-1.2-.4-1.7.4s-2 2.4-2.4 2.9-.9.6-1.7.2-3.3-1.2-6.2-3.8c-2.3-2-3.9-4.6-4.3-5.4s0-1.2.3-1.6l1.2-1.4c.4-.5.5-.8.8-1.4s.1-1-.1-1.4Z" fill={L.crimson} />
           </svg>
           011-7027 2360
         </div>
       </div>
       <div style={{position: 'absolute', top: 1120, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 16, opacity: chips, transform: `translateY(${(1 - chips) * 24}px)`}}>
         {['Jejawi · Perlis', 'Mergong · Alor Setar'].map((b) => (
-          <div key={b} style={{fontFamily: H, fontWeight: 500, fontSize: 34, letterSpacing: 3, color: D.gold, border: `2px solid ${D.gold}`, borderRadius: 999, padding: '6px 24px', textTransform: 'uppercase', background: 'rgba(12,5,7,0.55)'}}>
+          <div key={b} style={{fontFamily: H, fontWeight: 500, fontSize: 34, letterSpacing: 3, color: L.crimson, border: `2px solid ${L.crimson}`, borderRadius: 999, padding: '6px 24px', textTransform: 'uppercase', background: L.paper}}>
             {b}
           </div>
         ))}
       </div>
-      <div style={{position: 'absolute', top: 1448, left: 120, width: 800, textAlign: 'center', fontFamily: B, fontWeight: 600, fontSize: 25, lineHeight: 1.35, color: D.dim, opacity: chips}}>
+      <div style={{position: 'absolute', top: 1448, left: 120, width: 800, textAlign: 'center', fontFamily: B, fontWeight: 600, fontSize: 25, lineHeight: 1.35, color: L.dim, opacity: chips}}>
         Maklumat umum sahaja. Rawatan bergantung kepada pemeriksaan & penilaian doktor gigi.
       </div>
       <Stage>
-        <Sparkle x={tf.x - 230} y={tf.y - 40} s={0.5 + 0.1 * Math.sin(f / 5)} o={0.9 * logo} />
-        <Sparkle x={tf.x + 230} y={tf.y + 20} s={0.42 + 0.1 * Math.cos(f / 5)} o={0.9 * logo} />
+        <Sparkle x={tf.x - 230} y={tf.y - 40} s={0.5 + 0.1 * Math.sin(f / 5)} o={0.9 * logo} color={L.crimsonHi} />
+        <Sparkle x={tf.x + 230} y={tf.y + 20} s={0.42 + 0.1 * Math.cos(f / 5)} o={0.9 * logo} color={L.crimsonHi} />
       </Stage>
-      <div style={{position: 'absolute', inset: 0, background: D.goldHi, opacity: flash, mixBlendMode: 'screen'}} />
+      <div style={{position: 'absolute', inset: 0, background: '#fff', opacity: flash}} />
     </div>
   );
 };

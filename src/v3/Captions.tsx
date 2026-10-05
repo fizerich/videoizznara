@@ -7,7 +7,21 @@ import {PAGES, Word} from './words';
 // Diletakkan di dalam zon selamat TikTok / Reels (jauh dari butang kanan & kapsyen bawah).
 export const CAPTION_TOP = 1262;
 
-export const Captions: React.FC<{f: number; top?: number; pages?: Word[][]}> = ({f, top = CAPTION_TOP, pages = PAGES}) => {
+export type CaptionLook = {active: string; spoken: string; idle: string; stroke: string; shadow: string};
+const DARK_CAPTION: CaptionLook = {
+  active: D.gold,
+  spoken: D.cream,
+  idle: 'rgba(247,242,234,0.62)',
+  stroke: '#0c0507',
+  shadow: '0 8px 24px rgba(0,0,0,0.7)',
+};
+
+export const Captions: React.FC<{f: number; top?: number; pages?: Word[][]; look?: CaptionLook}> = ({
+  f,
+  top = CAPTION_TOP,
+  pages = PAGES,
+  look = DARK_CAPTION,
+}) => {
   const idx = pages.findIndex((p, i) => {
     const start = p[0].s - 2;
     const end = i + 1 < pages.length ? pages[i + 1][0].s - 2 : p[p.length - 1].e + 12;
@@ -51,10 +65,10 @@ export const Captions: React.FC<{f: number; top?: number; pages?: Word[][]}> = (
               fontSize: 88,
               lineHeight: 1.12,
               textTransform: 'uppercase',
-              color: active ? D.gold : spoken ? D.cream : 'rgba(247,242,234,0.62)',
-              WebkitTextStroke: '11px #0c0507',
+              color: active ? look.active : spoken ? look.spoken : look.idle,
+              WebkitTextStroke: `11px ${look.stroke}`,
               paintOrder: 'stroke fill',
-              textShadow: '0 8px 24px rgba(0,0,0,0.7)',
+              textShadow: look.shadow,
               transform: `scale(${pop})`,
               transformOrigin: '50% 70%',
             }}
@@ -67,7 +81,12 @@ export const Captions: React.FC<{f: number; top?: number; pages?: Word[][]}> = (
   );
 };
 
-export const Kicker: React.FC<{text: string; o: number; color?: string}> = ({text, o, color = D.gold}) => (
+export const Kicker: React.FC<{text: string; o: number; color?: string; bg?: string}> = ({
+  text,
+  o,
+  color = D.gold,
+  bg = 'rgba(12,5,7,0.55)',
+}) => (
   <div
     style={{
       display: 'inline-block',
@@ -80,7 +99,7 @@ export const Kicker: React.FC<{text: string; o: number; color?: string}> = ({tex
       padding: '8px 24px 8px 30px',
       opacity: o,
       transform: `translateY(${(1 - o) * 20}px)`,
-      background: 'rgba(12,5,7,0.55)',
+      background: bg,
     }}
   >
     {text}
