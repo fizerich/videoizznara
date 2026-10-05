@@ -1,5 +1,7 @@
 # Video Iklan Braces — Klinik Pergigian Izznara
 
+> **Video review Google (9:16 & 1:1):** lihat [`PANDUAN-REVIEW.md`](PANDUAN-REVIEW.md) — `npm run render:story` / `npm run render:square`; edit kandungan di `src/data.ts`.
+
 Dua video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izznara: **Jejawi, Perlis** dan **Mergong, Alor Setar**. Nombor hubungan: WhatsApp 011-7027 2360 sahaja.
 
 | Versi | Konsep | Tempoh | Audio | Fail |
