@@ -28,7 +28,7 @@ export const ReviewsVideo: React.FC = () => {
         <Audio
           src={staticFile(`music/${data.muzik}`)}
           volume={(f) =>
-            interpolate(f, [0, FPS, durationInFrames - FPS * 1.5, durationInFrames], [0, 0.5, 0.5, 0], {
+            interpolate(f, [0, FPS, durationInFrames - FPS * 1.5, durationInFrames], [0, 0.6, 0.6, 0], {
               extrapolateLeft: 'clamp',
               extrapolateRight: 'clamp',
             })

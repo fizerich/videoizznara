@@ -1,6 +1,6 @@
 # Video Promosi Review Google — Panduan Langkah demi Langkah
 
-Video 25.5 saat: **Intro** (logo + 5 bintang) → **3 kad review** → **Outro** (lokasi, waktu operasi, butang CTA, WhatsApp).
+Video 25.5 saat dengan muzik latar: **Intro** (logo + 5 bintang) → **3 kad review** → **Outro** (kedua-dua cawangan Jejawi & Mergong, waktu operasi, butang CTA, WhatsApp).
 Dua format daripada data yang sama: **9:16** (Reels/TikTok/Story) dan **1:1** (feed).
 
 Semua kandungan ada dalam **satu fail: `src/data.ts`**.
@@ -67,9 +67,9 @@ Buka **`src/data.ts`** dan ubah ikut keperluan:
 
 | Medan | Maksud |
 |---|---|
-| `nama`, `cawangan` | Nama klinik & cawangan (intro) |
-| `lokasi` | Alamat di outro |
-| `waktuOperasi` | Waktu operasi di outro |
+| `nama` | Nama klinik (intro) |
+| `cawangan` | Senarai cawangan `{nama, alamat}` — semua dipaparkan di outro (tambah/buang ikut keperluan) |
+| `waktuOperasi` | Waktu operasi (satu untuk semua cawangan) |
 | `whatsapp` | Nombor WhatsApp di outro |
 | `cta` | Teks butang |
 | `disclaimer` | Baris kecil di hujung |
@@ -99,15 +99,16 @@ Gantikan `public/logo.png` dengan logo baharu (latar putih, landskap berkadar se
 
 ---
 
-## E. Muzik latar (pilihan)
-1. Letakkan fail muzik (cth `lagu.mp3`) dalam folder **`public/music/`**.
-2. Dalam `src/data.ts` tukar `muzik: ''` kepada `muzik: 'lagu.mp3'`.
-3. Render semula. Muzik fade-in 1s dan fade-out di hujung, kelantangan 50%.
+## E. Muzik latar
+Muzik lalai: `public/music/latar-review.wav` — muzik lembut dan hangat (piano elektrik + pad), **disintesis sendiri, bebas hak cipta**.
+Chime dipadankan dengan visual: 5 bintang di intro, setiap kad review masuk, dan butang CTA di outro.
 
-⚠️ Gunakan muzik **bebas royalti** / yang anda ada lesen. Muzik berhak cipta boleh menyebabkan video disekat atau senyap di Instagram/TikTok.
-Tanpa muzik pun video sudah cukup difahami (teks sahaja).
+- Jana semula muzik (perlu `pip install numpy scipy`): `npm run audio:reviews`
+- Guna muzik sendiri: letak fail dalam `public/music/`, kemudian tukar `muzik: 'namafail.mp3'` dalam `src/data.ts`.
+- Tiada muzik: `muzik: ''`.
+- Fade-in 1s, fade-out di hujung, kelantangan 60% (ubah dalam `src/reviews/ReviewsVideo.tsx`).
 
----
+⚠️ Jika guna muzik sendiri, pastikan bebas royalti / ada lesen — muzik berhak cipta boleh menyebabkan video disekat atau senyap di Instagram/TikTok.
 
 ## F. Kawalan reka bentuk & pematuhan
 - Margin selamat 9:16: **260px atas, 400px bawah**, 72px kiri/kanan — jauh dari UI Reels/TikTok.
@@ -129,5 +130,6 @@ src/reviews/ReviewCard.tsx  kad review ala Google
 src/reviews/Outro.tsx       outro (lokasi, waktu, CTA, WhatsApp)
 src/reviews/theme.ts        warna, masa (INTRO/CARD/OUTRO), margin selamat
 public/logo.png             logo
-public/music/               letak muzik di sini
+public/music/               muzik latar (latar-review.wav)
+audio/generate_reviews.py   penjana muzik
 ```

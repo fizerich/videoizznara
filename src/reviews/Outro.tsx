@@ -38,31 +38,38 @@ export const Outro: React.FC = () => {
     <Safe>
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
         <div style={rise(f, 0, 18, 40)}>
-          <Logo width={760 * s} />
+          <Logo width={(L.story ? 600 : 520) * s} />
         </div>
 
         <div
           style={{
             ...rise(f, 12),
-            marginTop: 40 * s,
+            marginTop: 32 * s,
             width: '100%',
             background: R.white,
             borderRadius: 36 * s,
-            padding: `${36 * s}px ${44 * s}px`,
+            padding: `${32 * s}px ${44 * s}px`,
             boxShadow: '0 20px 50px rgba(31,55,90,0.14)',
             display: 'flex',
             flexDirection: 'column',
-            gap: 28 * s,
+            gap: 22 * s,
           }}
         >
+          {data.cawangan.map((c) => (
+            <React.Fragment key={c.nama}>
+              <div style={row}>
+                <Pin size={52 * s} />
+                <div>
+                  <div style={{fontSize: 44 * s, fontWeight: 800, color: R.maroon, lineHeight: 1.15}}>{c.nama}</div>
+                  <div style={{fontSize: 32 * s, fontWeight: 400, color: R.ink, lineHeight: 1.25, marginTop: 4 * s}}>{c.alamat}</div>
+                </div>
+              </div>
+              <div style={{height: 2, background: R.line}} />
+            </React.Fragment>
+          ))}
           <div style={row}>
-            <Pin size={58 * s} />
-            <div style={{fontSize: 42 * s, fontWeight: 600, color: R.ink, lineHeight: 1.25}}>{data.lokasi}</div>
-          </div>
-          <div style={{height: 2, background: R.line}} />
-          <div style={row}>
-            <Clock size={58 * s} />
-            <div style={{fontSize: 42 * s, fontWeight: 600, color: R.ink, lineHeight: 1.25}}>{data.waktuOperasi}</div>
+            <Clock size={52 * s} />
+            <div style={{fontSize: 38 * s, fontWeight: 600, color: R.ink, lineHeight: 1.25}}>{data.waktuOperasi}</div>
           </div>
         </div>
 

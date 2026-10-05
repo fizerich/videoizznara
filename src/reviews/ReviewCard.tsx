@@ -1,7 +1,7 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
 import type {Review} from '../data';
-import {data} from '../data';
+import {data, namaCawangan} from '../data';
 import {CARD, R, useLayout} from './theme';
 import {Safe, Stars, clamp, easeOut, rise} from './ui';
 
@@ -118,7 +118,7 @@ export const ReviewCard: React.FC<{review: Review; index: number; total: number}
           ))}
         </div>
         <div style={{marginTop: 18 * s, fontSize: 30 * s, fontWeight: 600, color: R.muted, opacity: (1 - exit) * enter}}>
-          {data.nama} · {data.cawangan}
+          {data.nama} · {namaCawangan}
         </div>
       </div>
     </Safe>

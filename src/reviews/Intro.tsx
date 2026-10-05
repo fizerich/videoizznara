@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {data} from '../data';
+import {data, namaCawangan} from '../data';
 import {R, INTRO, useLayout} from './theme';
 import {Logo, Safe, Stars, clamp, rise} from './ui';
 
@@ -19,7 +19,7 @@ export const Intro: React.FC = () => {
           {data.nama}
         </div>
         <div style={{...rise(f, 12), marginTop: 10 * s, fontSize: 40 * s, fontWeight: 600, color: R.muted}}>
-          {data.cawangan}
+          {namaCawangan}
         </div>
         <div style={{marginTop: 56 * s}}>
           <Stars count={5} size={118 * s} start={16} gap={10 * s} every={5} />

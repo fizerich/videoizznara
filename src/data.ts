@@ -10,36 +10,42 @@ export type Review = {
   teks: string; // teks review — salin SEPERTI ASAL, jangan ubah makna
 };
 
+export type Cawangan = {
+  nama: string; // cth 'Jejawi'
+  alamat: string; // alamat ringkas yang dipaparkan di outro
+};
+
 export type VideoData = {
   nama: string;
-  cawangan: string;
-  lokasi: string;
-  waktuOperasi: string;
+  cawangan: Cawangan[]; // semua cawangan dipaparkan di outro (CTA umum)
+  waktuOperasi: string; // satu waktu untuk semua cawangan
   whatsapp: string;
   cta: string;
   disclaimer: string;
   // Nama fail muzik dalam folder public/music, cth 'lagu.mp3'.
-  // Biar '' (kosong) jika tak mahu muzik.
+  // Biar '' (kosong) jika tak mahu muzik. Lalai: muzik sintesis bebas hak cipta
+  // yang dijana oleh `npm run audio:reviews`.
   muzik: string;
   reviews: Review[];
 };
 
 export const data: VideoData = {
   nama: 'Klinik Pergigian Izznara',
-  cawangan: 'Jejawi, Perlis',
+  // CTA umum — kedua-dua cawangan dipaparkan di outro.
+  cawangan: [
+    {nama: 'Jejawi', alamat: 'Taman Jejawi, 02600 Arau, Perlis'},
+    {nama: 'Mergong', alamat: 'Pusat Perdagangan Tuanku Haminah, Alor Setar'},
+  ],
 
-  // Alamat dari laman web/kod video sedia ada (Taman Jejawi, 02600 Arau).
-  lokasi: 'Taman Jejawi, 02600 Arau, Perlis',
-
-  // SILA SAHKAN: waktu ini diambil dari laman web cawangan Mergong
-  // ("Setiap hari, 9.00 pagi – 6.00 petang"). Betulkan jika Jejawi berbeza.
+  // SILA SAHKAN untuk Jejawi: waktu ini diambil dari laman web cawangan Mergong
+  // ("Setiap hari, 9.00 pagi – 6.00 petang").
   waktuOperasi: 'Setiap hari · 9.00 pagi – 6.00 petang',
 
   whatsapp: '011-7027 2360',
   cta: 'Jom Book Appointment',
   disclaimer: 'Review daripada pelanggan di Google',
 
-  muzik: '',
+  muzik: 'latar-review.wav',
 
   reviews: [
     {
@@ -59,3 +65,6 @@ export const data: VideoData = {
     },
   ],
 };
+
+// Ringkasan nama cawangan, cth 'Jejawi · Mergong'
+export const namaCawangan = data.cawangan.map((c) => c.nama).join(' · ');
