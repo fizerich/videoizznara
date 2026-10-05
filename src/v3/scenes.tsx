@@ -12,7 +12,7 @@ const BLUE = '#bfe8ff';
 const RED = '#e0405e';
 
 // ---------- teks "hentak" ----------
-const Slam: React.FC<{f: number; at: number; size: number; color?: string; children: React.ReactNode; out?: number}> = ({
+export const Slam: React.FC<{f: number; at: number; size: number; color?: string; children: React.ReactNode; out?: number}> = ({
   f,
   at,
   size,
@@ -23,7 +23,7 @@ const Slam: React.FC<{f: number; at: number; size: number; color?: string; child
   if (f < at) return null;
   const s = sp(f, at, 12, 0.6);
   const echo = ez(f, at, at + 14);
-  const o = interpolate(f, [out - 8, out], [1, 0], cl);
+  const o = Number.isFinite(out) ? interpolate(f, [out - 8, out], [1, 0], cl) : 1;
   const base: React.CSSProperties = {
     fontFamily: H,
     fontWeight: 700,
@@ -64,7 +64,7 @@ const Slam: React.FC<{f: number; at: number; size: number; color?: string; child
   );
 };
 
-const Col: React.FC<{top: number; gap?: number; children: React.ReactNode}> = ({top, gap = 6, children}) => (
+export const Col: React.FC<{top: number; gap?: number; children: React.ReactNode}> = ({top, gap = 6, children}) => (
   <div style={{position: 'absolute', top, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap}}>
     {children}
   </div>

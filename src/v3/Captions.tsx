@@ -1,23 +1,23 @@
 import React from 'react';
 import {interpolate} from 'remotion';
 import {B, cl, D, H, sp} from '../v2/kit';
-import {PAGES} from './words';
+import {PAGES, Word} from './words';
 
 // Subtitle ala TikTok: 3-4 perkataan satu halaman, perkataan aktif menyala emas & "pop".
 // Diletakkan di dalam zon selamat TikTok / Reels (jauh dari butang kanan & kapsyen bawah).
 export const CAPTION_TOP = 1262;
 
-export const Captions: React.FC<{f: number; top?: number}> = ({f, top = CAPTION_TOP}) => {
-  const idx = PAGES.findIndex((p, i) => {
+export const Captions: React.FC<{f: number; top?: number; pages?: Word[][]}> = ({f, top = CAPTION_TOP, pages = PAGES}) => {
+  const idx = pages.findIndex((p, i) => {
     const start = p[0].s - 2;
-    const end = i + 1 < PAGES.length ? PAGES[i + 1][0].s - 2 : p[p.length - 1].e + 12;
+    const end = i + 1 < pages.length ? pages[i + 1][0].s - 2 : p[p.length - 1].e + 12;
     return f >= start && f < end;
   });
   if (idx < 0) return null;
-  const page = PAGES[idx];
+  const page = pages[idx];
   const t0 = page[0].s - 2;
   const enter = sp(f, t0, 15, 0.55);
-  const nextStart = idx + 1 < PAGES.length ? PAGES[idx + 1][0].s - 2 : page[page.length - 1].e + 12;
+  const nextStart = idx + 1 < pages.length ? pages[idx + 1][0].s - 2 : page[page.length - 1].e + 12;
   const exit = interpolate(f, [nextStart - 4, nextStart], [1, 0], cl);
 
   return (

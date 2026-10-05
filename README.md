@@ -6,7 +6,20 @@ Dua video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izzna
 |---|---|---|---|---|
 | V1 | Gaya Vox — kertas cream, highlighter, rajah | 42s | Tiada | [`out/izznara-braces-9x16.mp4`](out/izznara-braces-9x16.mp4) |
 | V3 | **"Rawatan Akar"** — animasi keratan rentas gigi, disegerakkan dengan voiceover (BM), sari kata gaya TikTok | 58s | Voiceover + muzik + SFX | [`out/izznara-rawatan-akar-9x16.mp4`](out/izznara-rawatan-akar-9x16.mp4) |
+| V4 | **"Gusi Menyusut"** — barisan gigi pandangan depan, garis gusi turun & akar terdedah, disegerakkan dengan voiceover (BM) | 43s | Voiceover + muzik + SFX | [`out/izznara-gusi-menyusut-9x16.mp4`](out/izznara-gusi-menyusut-9x16.mp4) |
 | V2 | **"Benang Emas"** — hitam premium, satu wayar braces emas mengalir sepanjang video, kamera satu-take, disegerakkan dengan beat | 47s | Muzik + SFX | [`out/izznara-braces-v2-9x16.mp4`](out/izznara-braces-v2-9x16.mp4) |
+
+## V4 — "Gusi Menyusut" (TikTok / Facebook Reels)
+
+Berdasarkan voiceover `public/audio/vo-gusi.wav`: gigi nampak makin panjang dalam cermin → sebenarnya gusi menyusut, akar terdedah → 3 punca (berus terlalu kuat, penyakit gusi, ketap gigi waktu tidur) → ngilu bila minum air sejuk → jangan terus tampal, rawatan ikut punca → jumpa doktor gigi untuk pemeriksaan → CTA WhatsApp. Sari kata dijana oleh `audio/align_v4.py` daripada transkrip Whisper (`audio/whisper_v4.json`).
+
+```bash
+npm run captions:v4  # sari kata -> src/v4/words.ts
+npm run audio:v4     # muzik (ditunduk di bawah suara)
+npm run render:v4    # -> out/izznara-gusi-menyusut-9x16.mp4
+```
+
+Kod: `src/v4/` (`timeline.ts` = sempadan babak ikut suara, `Teeth.tsx` = barisan gigi + gusi, `scenes.tsx` = babak).
 
 ## V3 — "Rawatan Akar" (TikTok / Facebook Reels)
 
