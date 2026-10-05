@@ -38,13 +38,13 @@ export const Outro: React.FC = () => {
     <Safe>
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
         <div style={rise(f, 0, 18, 40)}>
-          <Logo width={(L.story ? 600 : 520) * s} />
+          <Logo width={(L.story ? 760 : 680) * s} shineAt={8} />
         </div>
 
         <div
           style={{
             ...rise(f, 12),
-            marginTop: 32 * s,
+            marginTop: 44 * s,
             width: '100%',
             background: R.white,
             borderRadius: 36 * s,

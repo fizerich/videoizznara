@@ -95,7 +95,7 @@ Buka **`src/data.ts`** dan ubah ikut keperluan:
 > tetapi 3 ialah yang paling sesuai untuk Reels/TikTok.
 
 ### Tukar logo
-Gantikan `public/logo.png` dengan logo baharu (latar putih, landskap berkadar sekitar 2.3:1 paling sesuai).
+Gantikan `public/logo.png` dengan logo baharu. Logo mesti **satu warna gelap di atas latar putih** — latar putih dibuang automatik (tiada kotak), logo diwarnakan maroon, dipotong kemas dan diberi kilauan ringkas. Logo berbilang warna tidak sesuai kerana akan jadi satu warna; tukar `R.maroon` dalam `src/reviews/theme.ts` jika perlu warna lain.
 
 ---
 

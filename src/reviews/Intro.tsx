@@ -2,7 +2,7 @@ import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
 import {data, namaCawangan} from '../data';
 import {R, INTRO, useLayout} from './theme';
-import {Logo, Safe, Stars, clamp, rise} from './ui';
+import {Logo, Rule, Safe, Stars, clamp, rise} from './ui';
 
 export const Intro: React.FC = () => {
   const f = useCurrentFrame();
@@ -12,13 +12,16 @@ export const Intro: React.FC = () => {
   return (
     <Safe>
       <div style={{opacity: out, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>
-        <div style={rise(f, 0, 20, 50)}>
-          <Logo width={880 * s} />
+        <div style={rise(f, 0, 22, 40)}>
+          <Logo width={880 * s} shineAt={14} />
         </div>
-        <div style={{...rise(f, 8), marginTop: 20 * s, fontSize: 56 * s, fontWeight: 800, color: R.maroon, lineHeight: 1.15}}>
+        <div style={{marginTop: 44 * s}}>
+          <Rule width={520 * s} start={10} />
+        </div>
+        <div style={{...rise(f, 10), marginTop: 34 * s, fontSize: 56 * s, fontWeight: 800, color: R.maroon, lineHeight: 1.15}}>
           {data.nama}
         </div>
-        <div style={{...rise(f, 12), marginTop: 10 * s, fontSize: 40 * s, fontWeight: 600, color: R.muted}}>
+        <div style={{...rise(f, 12), marginTop: 12 * s, fontSize: 40 * s, fontWeight: 600, color: R.muted}}>
           {namaCawangan}
         </div>
         <div style={{marginTop: 56 * s}}>
