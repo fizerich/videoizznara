@@ -9,7 +9,10 @@
     "render": "remotion render IzznaraBraces out/izznara-braces-9x16.mp4",
     "render:v2": "remotion render IzznaraBracesV2 out/izznara-braces-v2-9x16.mp4",
     "render:v3": "remotion render IzznaraRootCanal out/izznara-rawatan-akar-9x16.mp4",
+    "render:story": "remotion render ReviewStory out/review-story-9x16.mp4",
+    "render:square": "remotion render ReviewSquare out/review-square-1x1.mp4",
     "audio": "python3 audio/generate.py",
+    "audio:reviews": "python3 audio/generate_reviews.py",
     "audio:v3": "python3 audio/generate_v3.py"
   },
   "repository": {
