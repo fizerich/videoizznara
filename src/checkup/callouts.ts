@@ -30,5 +30,5 @@ export const CALLOUTS: Callout[] = [
   {kicker: {t: 'PERLUKAN', at: 47.9}, lines: [{t: 'PEMBERSIHAN', at: 48.02}, {t: 'RAPI', at: 48.6, tone: 'maroon'}]},
   // 5 · Penutup
   {kicker: {t: 'LEPAS NI', at: 49.76}, lines: [{t: 'JANGAN PANIK!', at: 50.34, tone: 'maroon'}]},
-  {kicker: {t: 'BAHASA RAHSIA DOKTOR', at: 52.7}, lines: [{t: 'SENYUMAN', at: 54.84, tone: 'indigo'}, {t: 'MANIS ANDA', at: 55.26, tone: 'maroon'}], end: 59.6},
+  {kicker: {t: 'BAHASA RAHSIA DOKTOR', at: 52.7}, lines: [{t: 'SENYUMAN', at: 54.84, tone: 'indigo'}, {t: 'MANIS ANDA', at: 55.26, tone: 'maroon'}], end: 59.3},
 ];

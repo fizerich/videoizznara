@@ -19,6 +19,8 @@ npm run render:checkup   # -> out/izznara-nombor-doktor-9x16.mp4
 npm run align:checkup    # jana semula src/checkup/words.ts daripada audio/whisper_checkup.json
 ```
 
+Penutup: kad logo + CTA (`EndCard.tsx`, data daripada `src/data.ts`) bermula 59.4s; jumlah 64s.
+
 Kod: `src/checkup/` — `callouts.ts` (teks + masa dalam saat, edit di sini), `Callouts.tsx`, `Captions.tsx`, `words.ts` (dijana), `CheckupVideo.tsx`. Tukar klip dengan menggantikan fail `clipN.mp4` (kekalkan 10s, 9:16).
 
 ## V3 — "Rawatan Akar" (TikTok / Facebook Reels)

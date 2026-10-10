@@ -4,7 +4,8 @@ import '@fontsource/oswald/700.css';
 import '@fontsource/inter/800.css';
 import {Callouts} from './Callouts';
 import {Captions} from './Captions';
-import {CLIPS, CLIP_SECONDS, FPS} from './theme';
+import {EndCard} from './EndCard';
+import {CLIPS, CLIP_SECONDS, END_START, FPS, TOTAL_CHECKUP} from './theme';
 
 const CLIP_FRAMES = CLIP_SECONDS * FPS;
 
@@ -25,6 +26,12 @@ export const CheckupVideo: React.FC = () => {
       <Audio src={staticFile('izzcheckup/vo.wav')} volume={1} />
       <Callouts f={f} />
       <Captions f={f} />
+      <Sequence from={END_START} durationInFrames={TOTAL_CHECKUP - END_START}>
+        <EndCard />
+        <Sequence from={34}>
+          <Audio src={staticFile('audio/sfx-chime.wav')} volume={0.5} />
+        </Sequence>
+      </Sequence>
     </AbsoluteFill>
   );
 };

@@ -10,7 +10,9 @@ export const C = {
 export const FPS = 30;
 export const CLIP_SECONDS = 10;
 export const CLIPS = 6;
-export const TOTAL_CHECKUP = FPS * CLIP_SECONDS * CLIPS; // 60s — 6 klip x 10s, VO 56.4s
+export const CLIPS_FRAMES = FPS * CLIP_SECONDS * CLIPS; // 60s — 6 klip x 10s, VO 56.4s
+export const END_START = Math.round(59.4 * FPS); // kad logo + CTA masuk selepas senyuman (klip 6)
+export const TOTAL_CHECKUP = FPS * 64; // 64s — kad penutup ~4.6s
 export const HEAD = 'Oswald, sans-serif';
 export const BODY = 'Inter, sans-serif';
 // Zon selamat TikTok/Reels 9:16: atas ≥250px, bawah ≥400px dari tepi
