@@ -10,6 +10,17 @@ Dua video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izzna
 | V3 | **"Rawatan Akar"** — animasi keratan rentas gigi, disegerakkan dengan voiceover (BM), sari kata gaya TikTok | 58s | Voiceover + muzik + SFX | [`out/izznara-rawatan-akar-9x16.mp4`](out/izznara-rawatan-akar-9x16.mp4) |
 | V2 | **"Benang Emas"** — hitam premium, satu wayar braces emas mengalir sepanjang video, kamera satu-take, disegerakkan dengan beat | 47s | Muzik + SFX | [`out/izznara-braces-v2-9x16.mp4`](out/izznara-braces-v2-9x16.mp4) |
 
+## V4 — "Nombor Doktor Gigi" (6 klip + VO + tipografi)
+
+6 klip motion graphic (10s setiap satu, `public/izzcheckup/clip1..6.mp4`) + voiceover `public/izzcheckup/vo.wav` (56s). Tipografi mengikut VO: **kapsyen perkataan-demi-perkataan** (bawah, perkataan aktif menyala maroon) dan **callout kata kunci** (atas — chip nombor 1-6 / 2-1 / 3-2-1, "SEBAB 1/2", "BUKAN ~~TEKA NOMBOR~~", "3+ POKET GUSI BENGKAK", dll.). Kedua-duanya dalam zon selamat TikTok/Reels.
+
+```bash
+npm run render:checkup   # -> out/izznara-nombor-doktor-9x16.mp4
+npm run align:checkup    # jana semula src/checkup/words.ts daripada audio/whisper_checkup.json
+```
+
+Kod: `src/checkup/` — `callouts.ts` (teks + masa dalam saat, edit di sini), `Callouts.tsx`, `Captions.tsx`, `words.ts` (dijana), `CheckupVideo.tsx`. Tukar klip dengan menggantikan fail `clipN.mp4` (kekalkan 10s, 9:16).
+
 ## V3 — "Rawatan Akar" (TikTok / Facebook Reels)
 
 Berdasarkan voiceover `public/audio/vo-akar.wav`: sakit & ngilu → jangkitan bakteria ke pulpa → "cabut?" → rawatan akar 3 langkah (buang saraf, basmi kuman, tutup & tampal) → sakit hilang → CTA WhatsApp. Sari kata perkataan-demi-perkataan dijana oleh `audio/align_v3.py` (masa dari Whisper), kandungan penting diletakkan dalam zon selamat UI TikTok/Reels. Tiada before/after atau testimoni; ada penafian di akhir.
