@@ -300,7 +300,7 @@ export const KetaraScene: React.FC<{f: number}> = ({f}) => {
   const meter = ez(l, ketara - 6, ketara + 16);
   return (
     <AbsoluteFill>
-      <Footage src="v4/clip-client.mp4" f={l} dur={104} start={3.6} zoom={[1.18, 1.3]} />
+      <Footage src="v4/clip-client.mp4" f={l} dur={104} start={1.9} zoom={[1.35, 1.5]} origin="50% 30%" />
       <Grade />
       <div style={{position: 'absolute', top: 200, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 18}}>
         <Chip text="Senyum" p={sp(l, 4)} dark dot="#ffd23f" size={42} />

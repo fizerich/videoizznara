@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate, OffthreadVideo, random, spring, staticFile} from 'remotion';
+import {AbsoluteFill, Easing, interpolate, OffthreadVideo, random, Sequence, spring, staticFile, useCurrentFrame} from 'remotion';
 
 export const FPS = 30;
 export const TOTAL4 = 1620;
@@ -56,12 +56,15 @@ export const Footage: React.FC<{
   sat?: number;
   bright?: number;
   blur?: number;
-}> = ({src, f, dur, start = 0, zoom = [1.04, 1.14], pan = [0, 0], sat = 1.05, bright = 1, blur = 0}) => {
+  origin?: string;
+}> = ({src, f, dur, start = 0, zoom = [1.04, 1.14], pan = [0, 0], sat = 1.05, bright = 1, blur = 0, origin = '50% 50%'}) => {
+  const g = useCurrentFrame();
   const k = f / dur;
   const z = zoom[0] + (zoom[1] - zoom[0]) * k;
   const px = pan[0] + (pan[1] - pan[0]) * k;
   return (
     <AbsoluteFill style={{overflow: 'hidden', background: '#000'}}>
+      <Sequence from={g - f} layout="none">
       <OffthreadVideo
         src={staticFile(src)}
         startFrom={Math.round(start * FPS)}
@@ -71,9 +74,11 @@ export const Footage: React.FC<{
           height: '100%',
           objectFit: 'cover',
           transform: `scale(${z}) translateX(${px}px)`,
+          transformOrigin: origin,
           filter: `saturate(${sat}) brightness(${bright}) contrast(1.04) ${blur ? `blur(${blur}px)` : ''}`,
         }}
       />
+      </Sequence>
     </AbsoluteFill>
   );
 };

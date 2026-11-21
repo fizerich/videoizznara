@@ -269,7 +269,7 @@ const Aligner: React.FC<{p: number; lift: number; f: number}> = ({p, lift, f}) =
       {ARCH.map((t, k) => {
         const rings: React.ReactNode[] = [];
         const top = GUM_H + t.h + 5;
-        for (let y = GUM_H + 4; y <= top; y += 6) {
+        for (let y = GUM_H + 4; y <= top; y += 8) {
           const kk = (y - GUM_H) / t.h;
           const bulge = Math.sin(Math.min(1, kk * 1.15) * Math.PI * 0.62);
           const hl = 0.5 + 0.5 * Math.cos(((t.rot - glint) * Math.PI) / 180);
@@ -280,8 +280,8 @@ const Aligner: React.FC<{p: number; lift: number; f: number}> = ({p, lift, f}) =
               d={t.d * (0.72 + 0.28 * bulge) + 9}
               y={y}
               br="40%"
-              bg={`rgba(200,232,255,${0.05 + hl * 0.05})`}
-              border={`1.6px solid rgba(255,255,255,${0.35 + hl * 0.45})`}
+              bg={`rgba(120,175,225,${0.16 + hl * 0.06})`}
+              border={`2px solid rgba(${Math.round(40 + hl * 160)},${Math.round(105 + hl * 120)},${Math.round(170 + hl * 70)},${0.6 + hl * 0.3})`}
             />,
           );
         }
@@ -292,9 +292,9 @@ const Aligner: React.FC<{p: number; lift: number; f: number}> = ({p, lift, f}) =
             d={t.d + 9}
             y={top + 2}
             br="38%"
-            bg="linear-gradient(135deg, rgba(255,255,255,0.55), rgba(190,225,255,0.18) 40%, rgba(255,255,255,0.05) 60%, rgba(255,255,255,0.4))"
-            border="1.5px solid rgba(255,255,255,0.8)"
-            shadow="0 0 18px rgba(180,225,255,0.55)"
+            bg="linear-gradient(135deg, rgba(255,255,255,0.7), rgba(110,170,225,0.45) 40%, rgba(70,130,190,0.35) 60%, rgba(255,255,255,0.6))"
+            border="2.5px solid rgba(50,115,180,0.85)"
+            shadow="0 0 16px rgba(60,140,220,0.6)"
           />,
         );
         return (
