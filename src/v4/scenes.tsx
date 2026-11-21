@@ -124,24 +124,6 @@ export const ProsScene: React.FC<{f: number}> = ({f}) => {
         <Footage src={cut.src} f={ll} dur={cut.dur} start={cut.start} zoom={[1.08, 1.16]} />
       </AbsoluteFill>
       <Grade />
-      {/* garis masa "hari-hari" */}
-      <div style={{position: 'absolute', top: 210, left: 0, right: 0, textAlign: 'center'}}>
-        <Chip text={cut.label} p={sp(f, S.pros + cut.chip - 4)} dark dot="#ff8fab" size={46} />
-      </div>
-      <div style={{position: 'absolute', top: 330, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 16}}>
-        {CUTS.map((c, i) => (
-          <div
-            key={i}
-            style={{
-              width: 90,
-              height: 8,
-              borderRadius: 4,
-              background: l >= c.at ? '#fff' : 'rgba(255,255,255,0.3)',
-              opacity: ez(l, 0, 10),
-            }}
-          />
-        ))}
-      </div>
       {/* kilat potongan */}
       <AbsoluteFill style={{background: '#fff', opacity: interpolate(ll, [0, 5], [cut.at === 0 ? 0.9 : 0.45, 0], cl)}} />
     </AbsoluteFill>
@@ -159,31 +141,6 @@ export const SeganScene: React.FC<{f: number}> = ({f}) => {
     <AbsoluteFill>
       <Footage src="v4/clip-meeting.mp4" f={l} dur={170} start={6.5} zoom={[1.12, 1.32]} pan={[0, -30]} sat={sat} bright={1 - (1 - sat) * 0.25} />
       <Grade top={0.5} />
-      <Title p={sp(l, 20)} top={190} size={52} color="#fff" style={{fontWeight: 700, letterSpacing: 2}}>
-        Nak betulkan gigi, tapi...
-      </Title>
-      {l >= segan - 4 ? (
-        <div
-          style={{
-            position: 'absolute',
-            top: 270,
-            left: 0,
-            right: 0,
-            textAlign: 'center',
-            fontFamily: F.head,
-            fontWeight: 900,
-            fontSize: 230,
-            letterSpacing: -6,
-            color: 'transparent',
-            WebkitTextStroke: '4px #fff',
-            transform: `scale(${0.7 + 0.3 * sp(l, segan - 4, 10)})`,
-            opacity: Math.min(1, sp(l, segan - 4) * 1.5),
-            textShadow: '0 0 40px rgba(255,143,171,0.6)',
-          }}
-        >
-          SEGAN
-        </div>
-      ) : null}
       {/* kanta: braces nampak jelas */}
       {lensP > 0.01 ? (
         <div
@@ -302,10 +259,6 @@ export const KetaraScene: React.FC<{f: number}> = ({f}) => {
     <AbsoluteFill>
       <Footage src="v4/clip-client.mp4" f={l} dur={104} start={1.9} zoom={[1.35, 1.5]} origin="50% 30%" />
       <Grade />
-      <div style={{position: 'absolute', top: 200, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 18}}>
-        <Chip text="Senyum" p={sp(l, 4)} dark dot="#ffd23f" size={42} />
-        <Chip text="Bercakap" p={sp(l, 42)} dark dot="#7ee081" size={42} />
-      </div>
       {/* meter ketara */}
       <div
         style={{
@@ -401,9 +354,6 @@ export const BukaScene: React.FC<{f: number}> = ({f}) => {
         const t = (l + i * 22) % 66;
         return <Sparkle key={i} x={500 + i * 70} y={800 + (i % 2) * 60 - l * 0.6} s={interpolate(t, [0, 12, 30], [0, 0.55, 0], cl)} rot={t * 3} color="#eaf6ff" />;
       })}
-      <Title p={sp(l, 0)} top={150} size={88}>
-        Boleh <span style={{color: C.rose}}>buka</span>
-      </Title>
       <div style={{position: 'absolute', top: 1095, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 26}}>
         {items.map((it) => {
           const p = sp(f, it.at - 4, 11);
@@ -430,11 +380,6 @@ export const BukaScene: React.FC<{f: number}> = ({f}) => {
           );
         })}
       </div>
-      {l >= buka ? (
-        <div style={{position: 'absolute', top: 290, left: 0, right: 0, display: 'flex', justifyContent: 'center'}}>
-          <Chip text="Tanggal & pakai semula" p={sp(l, buka)} dot="#5bb6ff" size={38} />
-        </div>
-      ) : null}
     </AbsoluteFill>
   );
 };
@@ -449,9 +394,6 @@ export const BalikScene: React.FC<{f: number}> = ({f}) => {
   return (
     <AbsoluteFill>
       <PearlBg f={f} tint={0.6} />
-      <Title p={sp(l, 2)} top={180} size={96}>
-        Pakai <span style={{color: C.rose}}>balik</span>
-      </Title>
       <Arch3D f={f} spin={25 - l * 0.4} tilt={34} scale={1.25} aligner={1} lift={lift} y={760} />
       {/* kad jadual */}
       <div
@@ -556,11 +498,11 @@ export const RolesScene: React.FC<{f: number}> = ({f}) => {
         <div
           style={{
             position: 'absolute',
-            left: 90,
-            right: 90,
-            top: 640,
-            padding: '50px 40px',
-            borderRadius: 44,
+            left: 540 - 160,
+            width: 320,
+            top: 560,
+            padding: '50px 0',
+            borderRadius: 999,
             background: 'rgba(255,255,255,0.92)',
             boxShadow: '0 40px 80px rgba(0,0,0,0.45)',
             textAlign: 'center',
@@ -569,12 +511,7 @@ export const RolesScene: React.FC<{f: number}> = ({f}) => {
           }}
         >
           <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Check p={ez(f, fin + 8, fin + 24)} size={90} />
-          </div>
-          <div style={{fontFamily: F.head, fontWeight: 900, fontSize: 70, lineHeight: 1.05, color: C.ink, marginTop: 18, letterSpacing: -1.5}}>
-            Satu pilihan
-            <br />
-            <span style={{color: C.rose}}>yang boleh dipertimbangkan</span>
+            <Check p={ez(f, fin + 8, fin + 24)} size={220} />
           </div>
         </div>
       ) : null}
@@ -588,21 +525,13 @@ export const CtaScene: React.FC<{f: number}> = ({f}) => {
   const l = f - S.cta;
   const btn = 1440 - S.cta;
   const tap = 1466 - S.cta;
-  const slot = 1496 - S.cta;
   const press = interpolate(l, [tap - 3, tap, tap + 8], [1, 0.9, 1], cl);
   const ripple = interpolate(l, [tap, tap + 26], [0, 1], cl);
   const hand = out(l, tap - 26, tap - 2);
-  const slots = ['Pagi', 'Tengah hari', 'Petang'];
   return (
     <AbsoluteFill>
       <PearlBg f={f} tint={0.4} />
-      <Title p={sp(l, 4)} top={170} size={60} color={C.burg} style={{fontWeight: 800, letterSpacing: 1}}>
-        Sesuai tak untuk
-      </Title>
-      <Title p={sp(l, 12)} top={240} size={120}>
-        gigi anda?
-      </Title>
-      <Arch3D f={f} spin={Math.sin(l / 45) * 26} tilt={30} scale={1.0} aligner={1} y={640} />
+      <Arch3D f={f} spin={Math.sin(l / 45) * 26} tilt={30} scale={1.35} aligner={1} y={560} />
       {/* butang Send Message */}
       <div style={{position: 'absolute', top: 850, left: 0, right: 0, display: 'flex', justifyContent: 'center'}}>
         <div
@@ -658,44 +587,6 @@ export const CtaScene: React.FC<{f: number}> = ({f}) => {
           }}
         />
       ) : null}
-      {/* semak slot konsultasi */}
-      <div
-        style={{
-          position: 'absolute',
-          left: 110,
-          right: 110,
-          top: 1050,
-          opacity: sp(l, slot),
-          transform: `translateY(${(1 - sp(l, slot)) * 50}px)`,
-        }}
-      >
-        <div style={{textAlign: 'center', fontFamily: F.head, fontWeight: 800, fontSize: 34, color: C.ink, letterSpacing: 1}}>Kami bantu semak slot konsultasi</div>
-        <div style={{display: 'flex', justifyContent: 'center', gap: 14, marginTop: 18}}>
-          {slots.map((s, i) => {
-            const p = sp(l, slot + 10 + i * 6, 12);
-            const pick = i === 1 && l > slot + 44;
-            return (
-              <div
-                key={s}
-                style={{
-                  padding: '16px 22px',
-                  borderRadius: 20,
-                  background: pick ? C.burg : '#fff',
-                  color: pick ? '#fff' : C.ink,
-                  fontFamily: F.head,
-                  fontWeight: 700,
-                  fontSize: 30,
-                  boxShadow: '0 12px 26px rgba(42,7,16,0.16)',
-                  opacity: p,
-                  transform: `scale(${0.8 + 0.2 * p})`,
-                }}
-              >
-                {s}
-              </div>
-            );
-          })}
-        </div>
-      </div>
       {/* logo & penafian di akhir */}
       <div style={{position: 'absolute', top: 1340, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20, opacity: ez(l, 188, 206)}}>
         <Logo height={110} />
