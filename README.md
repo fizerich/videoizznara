@@ -7,8 +7,32 @@ Dua video animasi (9:16, 1080×1920) untuk iklan braces kedua-dua cawangan Izzna
 | Versi | Konsep | Tempoh | Audio | Fail |
 |---|---|---|---|---|
 | V1 | Gaya Vox — kertas cream, highlighter, rajah | 42s | Tiada | [`out/izznara-braces-9x16.mp4`](out/izznara-braces-9x16.mp4) |
+| V4 | **"Clear Aligner"** — gigi 3D (CSS 3D) braces besi → aligner lut sinar, footage profesional, disegerakkan dengan voiceover | 54s | Voiceover + muzik + SFX | [`out/izznara-clear-aligner-9x16.mp4`](out/izznara-clear-aligner-9x16.mp4) |
 | V3 | **"Rawatan Akar"** — animasi keratan rentas gigi, disegerakkan dengan voiceover (BM), sari kata gaya TikTok | 58s | Voiceover + muzik + SFX | [`out/izznara-rawatan-akar-9x16.mp4`](out/izznara-rawatan-akar-9x16.mp4) |
 | V2 | **"Benang Emas"** — hitam premium, satu wayar braces emas mengalir sepanjang video, kamera satu-take, disegerakkan dengan beat | 47s | Muzik + SFX | [`out/izznara-braces-v2-9x16.mp4`](out/izznara-braces-v2-9x16.mp4) |
+
+## V4 — "Clear Aligner" (Reels / TikTok)
+
+Narasi `public/v4/vo-aligner.wav`: segan pakai braces besi → profesional (cikgu, pesakit, klien) → Clear Aligner lut sinar → boleh buka untuk makan/berus/floss → pakai balik ikut jadual → CTA "Send Message".
+
+| Frame | Babak |
+|---|---|
+| 0–262 | Hook — rahang 3D dengan braces besi & getah warna-warni, "aduh!" |
+| 262–437 | Footage: mengajar / jumpa pesakit / klien |
+| 437–606 | "SEGAN" + kanta braces nampak jelas |
+| 606–808 | Pendedahan Clear Aligner — aligner 3D turun & terpasang pada gigi |
+| 808–912 | Footage senyum + meter "kurang ketara" |
+| 912–1015 | Foto aligner + ikon makan, berus gigi, floss |
+| 1015–1110 | Aligner dipakai semula + kad jadual doktor |
+| 1110–1372 | Triptych cikgu/pensyarah · doktor · jumpa orang |
+| 1372–1620 | CTA Send Message + slot konsultasi + logo |
+
+```bash
+npm run audio:v4   # muzik (ditunduk bawah suara) + sari kata dari audio/whisper_v4.json
+npm run render:v4  # -> out/izznara-clear-aligner-9x16.mp4
+```
+
+Kod: `src/v4/` (`Arch3D.tsx` = rahang gigi 3D, `scenes.tsx` = babak, `kit.tsx` = masa babak & palet).
 
 ## V3 — "Rawatan Akar" (TikTok / Facebook Reels)
 

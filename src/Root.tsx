@@ -5,6 +5,8 @@ import {FPS, TOTAL} from './theme';
 import {TOTAL2} from './v2/kit';
 import {RootCanalAd} from './v3/RootCanalAd';
 import {TOTAL3} from './v3/timeline';
+import {AlignerAd} from './v4/AlignerAd';
+import {TOTAL4} from './v4/kit';
 import {ReviewsVideo, REVIEW_FRAMES} from './reviews/ReviewsVideo';
 
 export const RemotionRoot: React.FC = () => (
@@ -48,6 +50,14 @@ export const RemotionRoot: React.FC = () => (
       fps={FPS}
       width={1080}
       height={1080}
+    />
+    <Composition
+      id="IzznaraClearAligner"
+      component={AlignerAd}
+      durationInFrames={TOTAL4}
+      fps={FPS}
+      width={1080}
+      height={1920}
     />
   </>
 );

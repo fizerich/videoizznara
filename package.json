@@ -13,7 +13,9 @@
     "render:square": "remotion render ReviewSquare out/review-square-1x1.mp4",
     "audio": "python3 audio/generate.py",
     "audio:reviews": "python3 audio/generate_reviews.py",
-    "audio:v3": "python3 audio/generate_v3.py"
+    "audio:v3": "python3 audio/generate_v3.py",
+    "render:v4": "remotion render IzznaraClearAligner out/izznara-clear-aligner-9x16.mp4",
+    "audio:v4": "python3 audio/generate_v4.py && python3 audio/align_v4.py"
   },
   "repository": {
     "type": "git",
