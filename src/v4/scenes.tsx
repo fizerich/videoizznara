@@ -386,9 +386,10 @@ export const BukaScene: React.FC<{f: number}> = ({f}) => {
           style={{
             position: 'absolute',
             width: 1080,
-            height: 1620,
+            height: 2000,
             objectFit: 'cover',
-            top: -40,
+            objectPosition: '50% 30%',
+            top: -140,
             transform: `scale(${z}) translateY(${-l * 0.4}px)`,
             transformOrigin: '50% 40%',
           }}
@@ -398,12 +399,12 @@ export const BukaScene: React.FC<{f: number}> = ({f}) => {
       {/* kilauan pada aligner */}
       {[0, 1, 2].map((i) => {
         const t = (l + i * 22) % 66;
-        return <Sparkle key={i} x={500 + i * 70} y={640 + (i % 2) * 60 - l * 0.4} s={interpolate(t, [0, 12, 30], [0, 0.55, 0], cl)} rot={t * 3} color="#eaf6ff" />;
+        return <Sparkle key={i} x={500 + i * 70} y={800 + (i % 2) * 60 - l * 0.6} s={interpolate(t, [0, 12, 30], [0, 0.55, 0], cl)} rot={t * 3} color="#eaf6ff" />;
       })}
       <Title p={sp(l, 0)} top={150} size={88}>
         Boleh <span style={{color: C.rose}}>buka</span>
       </Title>
-      <div style={{position: 'absolute', top: 1010, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 26}}>
+      <div style={{position: 'absolute', top: 1095, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 26}}>
         {items.map((it) => {
           const p = sp(f, it.at - 4, 11);
           return (
